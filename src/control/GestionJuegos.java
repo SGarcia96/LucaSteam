@@ -1,7 +1,5 @@
 package control;
 
 public class GestionJuegos {
-//buenos días
-	// esto es un ejemploadadsad
-	// tercera version
+//cuarta prueba 
 }
