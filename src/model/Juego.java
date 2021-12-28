@@ -1,5 +1,9 @@
 package model;
 
-public class Juego {
+import lombok.Getter;
+import lombok.Setter;
 
+public class Juego {
+	@Getter @Setter private String nombre;
+	@Getter @Setter private int fecha;
 }
