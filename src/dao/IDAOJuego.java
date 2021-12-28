@@ -6,4 +6,5 @@ public interface IDAOJuego {
 	
 	public void darDeAlta();
 	public void darDeAlta(Juego juego);
+	public void listarJuegos();
 }
