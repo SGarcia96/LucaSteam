@@ -1,3 +1,6 @@
-/gui/
-/services/
 /control/
+/test/
+/model/
+/dao/
+/services/
+/gui/
