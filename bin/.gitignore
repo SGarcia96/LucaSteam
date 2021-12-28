@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-/test/
-/model/
-<<<<<<< HEAD
-/utils/
 /control/
+<<<<<<< HEAD
 =======
 /control/
 /gui/
@@ -14,3 +10,5 @@
 >>>>>>> dca3e1d0428c5dedbc0d2faef64d07d76e18d435
 >>>>>>> 3d1f22178056a65da6f3453cbdcccf1c06955214
 /dao/
+=======
+>>>>>>> 5d576d83703bdb80b86cc11c1bbe748c64a7b411
