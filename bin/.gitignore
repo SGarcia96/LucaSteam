@@ -1,7 +1,2 @@
-/control/
-/dao/
-/gui/
-/model/
-/services/
-/test/
+/exceptions/
 /utils/

@@ -91,6 +91,7 @@ public class DAOJuegoImpl implements IDAOJuego {
 				if(cont > 0) {
 					Juego juego = new Juego();
 					juegoArray = linea.split(",");
+
 					juego.setNombre(juegoArray[0]);
 					juego.setPlataforma(Plataforma.dimePlataforma(juegoArray[1]));
 					try {
@@ -101,6 +102,7 @@ public class DAOJuegoImpl implements IDAOJuego {
 					juego.setGenero(Genero.dimeGenero(juegoArray[3]));
 					juego.setEditor(juegoArray[4]);
 					this.darDeAlta(juego);
+
 				}
 				cont++;
 			}
