@@ -1,4 +1,8 @@
-/exceptions/
-/test/
-/exceptions/
 /utils/
+/test/
+/dao/
+/model/
+/control/
+/services/
+/exceptions/
+/gui/

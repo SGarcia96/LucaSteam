@@ -3,10 +3,16 @@ package utils;
 import java.util.InputMismatchException;
 
 import exceptions.ExcepcionFecha;
+
+import exceptions.ExcepcionGenero;
+
 import exceptions.ExcepcionPlat;
+
 import model.Genero;
 import model.Juego;
 import model.Plataforma;
+
+
 
 public class PedirDatos {
 	
@@ -36,19 +42,50 @@ public class PedirDatos {
 		
 		
 		
+		
 		juego.setEditor(EntradaTeclado.leeStringConMensaje("introduce editor"));
-		
-		
+
 		Plataforma.InformePlataforma();
+		juego.setPlataforma(Plataforma.dimePlataforma(EntradaTeclado.leeStringConMensaje("introduce plataforma")));
+		
+		
+		
+		
+		
+		//juego.setGenero(Genero.dimeGenero(EntradaTeclado.leeIntConMensaje("introduce genero")));
+		
+		
+		
+		boolean generoIncorrecto = true;
+		Genero genero;
+		do {
+			try {
+				Genero.InformeGenero();
+				genero = Genero.dimeGenero(EntradaTeclado.leeIntConMensaje("Introduce genero"));
+				juego.setGenero(genero);
+				generoIncorrecto = false;
+			}
+			catch (InputMismatchException e) {
+				System.out.println("Un número entero por favor");
+			}
+			catch (Throwable t) {
+				System.out.println(((ExcepcionGenero)t).getMensaje());
+			}
+			
+		} while (generoIncorrecto);
+
+		
+		
+		
 		boolean platIncorrecta = true;
 		Plataforma plat;
 		do {
 			try {
+				Plataforma.InformePlataforma();
 				plat = Plataforma.dimePlataforma(EntradaTeclado.leeStringConMensaje("introduce plataforma"));
 				if(plat == null){
 					throw new ExcepcionPlat();
 				}
-				System.out.println(plat);
 				juego.setPlataforma(plat);
 				platIncorrecta = false;
 			}
@@ -62,6 +99,14 @@ public class PedirDatos {
 		
 		
 		Genero.InformeGenero();
-		juego.setGenero(Genero.dimeGenero(EntradaTeclado.leeIntConMensaje("introduce genero")));
+		try {
+			juego.setGenero(Genero.dimeGenero(EntradaTeclado.leeIntConMensaje("introduce genero")));
+		} catch (ExcepcionGenero e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
+	
+	
 }
