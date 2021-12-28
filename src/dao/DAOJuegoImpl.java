@@ -84,12 +84,12 @@ public class DAOJuegoImpl implements IDAOJuego {
 	public void cargarJuegos() {
 		String linea;
 		String[] juegoArray = new String[5];
-		Juego juego = new Juego();
 		int cont = 0;
 		try(FileReader fileReader = new FileReader("vgsales.csv");
 				BufferedReader bufferedReader = new BufferedReader(fileReader)){
 			while((linea = bufferedReader.readLine()) != null) {
 				if(cont > 0) {
+					Juego juego = new Juego();
 					juegoArray = linea.split(",");
 					juego.setNombre(juegoArray[0]);
 					juego.setPlataforma(Plataforma.dimePlataforma(juegoArray[1]));
