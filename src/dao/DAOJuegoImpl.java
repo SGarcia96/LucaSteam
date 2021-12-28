@@ -51,9 +51,9 @@ public class DAOJuegoImpl implements IDAOJuego {
 			System.out.println("No hay ningun juego registrado");
 		}
 		else {
-			
+			Genero.InformeGenero();
 			listarJuegosPorGenero(Genero.dimeGenero(EntradaTeclado.leeIntConMensaje("Introduzca genero")));
-			
+	
 		}
 	}
 	@Override	
