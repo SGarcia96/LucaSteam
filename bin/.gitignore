@@ -1,17 +1,6 @@
-<<<<<<< HEAD
-/dao/
-/model/
-/services/
-/test/
-/control/
-<<<<<<< HEAD
-/gui/
 /utils/
-=======
-/control/
->>>>>>> 5d576d83703bdb80b86cc11c1bbe748c64a7b411
-=======
 /test/
+<<<<<<< HEAD
 /model/
 /dao/
 /services/
@@ -21,3 +10,6 @@
 =======
 >>>>>>> 2bf89d90808d81867df8e4ae17998f46dcc96967
 >>>>>>> 243357df55c3ac13fc1b95dd5b3198a2c086756b
+=======
+>>>>>>> ce1ab254c8196008ffd29c3a399c02f32f6bf80a
+/control/
