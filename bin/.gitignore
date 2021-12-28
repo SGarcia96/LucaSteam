@@ -1,16 +1,1 @@
-/model/
-/control/
-<<<<<<< HEAD
-/gui/
-=======
->>>>>>> d2bcb3665b5c28cc7a2edeed00c38b5ed685585a
-/dao/
-<<<<<<< HEAD
-/services/
-=======
-<<<<<<< HEAD
-=======
-/utils/
->>>>>>> altaJuego
->>>>>>> 3b03fba12a0d370175a94fc6c873b5be8517752b
-/log4j2.xml
+/test/
