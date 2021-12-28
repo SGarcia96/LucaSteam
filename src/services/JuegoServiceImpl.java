@@ -35,14 +35,14 @@ public class JuegoServiceImpl implements IJuegoService {
 	public void listarJuegosPorGenero() {
 		logger.info("Inicio del metodo listar juegos por genero en la capa de servicios");
 		logger.debug("Llamando al metodo listar juegos por genero de la capa de datos");
-		// daoJuego.listarJuegosPorGenero();
+		 daoJuego.listarJuegosPorGenero();
 	}
 
 	@Override
 	public void listarJuegosPorGenero(Genero genero) {
 		logger.info("Inicio del metodo listar juegos por genero en la capa de servicios");
 		logger.debug("Llamando al metodo listar juegos por genero de la capa de datos");
-		// daoJuego.listarJuegosPorGenero(genero);
+		 daoJuego.listarJuegosPorGenero(genero);
 	}
 
 	@Override
@@ -58,6 +58,7 @@ public class JuegoServiceImpl implements IJuegoService {
 		logger.debug("Llamando al metodo dar de alta de la capa de datos");
 		daoJuego.darDeAlta(juego);
 	}
+
 
 	@Override
 	public void cargarJuegos() {

@@ -12,7 +12,9 @@ import org.apache.logging.log4j.Logger;
 import model.Genero;
 import model.Juego;
 import model.Plataforma;
+import utils.EntradaTeclado;
 import utils.PedirDatos;
+
 
 public class DAOJuegoImpl implements IDAOJuego {
 
@@ -40,6 +42,30 @@ public class DAOJuegoImpl implements IDAOJuego {
 		listaJuegos.add(juego);
 		System.out.println("se ha agregado el juego: " + juego);
 	}
+	
+	@Override
+	public void listarJuegosPorGenero() {
+		logger.info("Inicio del metodo listar juegos por genero en la capa de datos");
+		if (listaJuegos.isEmpty()) {
+			logger.warn("No hay ningun juego registrado");
+			System.out.println("No hay ningun juego registrado");
+		}
+		else {
+			Genero.InformeGenero();
+			listarJuegosPorGenero(Genero.dimeGenero(EntradaTeclado.leeIntConMensaje("Introduzca genero")));
+	
+		}
+	}
+	@Override	
+		public void listarJuegosPorGenero(Genero genero) {
+			for(Juego juego: listaJuegos) {
+				if(genero.equals(juego.getGenero())) {
+					System.out.println(juego);
+				}
+			}
+		}
+			
+	
 
 	@Override
 	public void listarJuegos() {
@@ -65,6 +91,7 @@ public class DAOJuegoImpl implements IDAOJuego {
 				if(cont > 0) {
 					Juego juego = new Juego();
 					juegoArray = linea.split(",");
+
 					juego.setNombre(juegoArray[0]);
 					juego.setPlataforma(Plataforma.dimePlataforma(juegoArray[1]));
 					try {
@@ -75,6 +102,7 @@ public class DAOJuegoImpl implements IDAOJuego {
 					juego.setGenero(Genero.dimeGenero(juegoArray[3]));
 					juego.setEditor(juegoArray[4]);
 					this.darDeAlta(juego);
+
 				}
 				cont++;
 			}
