@@ -3,7 +3,11 @@ package utils;
 import java.util.InputMismatchException;
 
 import exceptions.ExcepcionFecha;
+
 import exceptions.ExcepcionGenero;
+
+import exceptions.ExcepcionPlat;
+
 import model.Genero;
 import model.Juego;
 import model.Plataforma;
@@ -13,6 +17,7 @@ import model.Plataforma;
 public class PedirDatos {
 	
 	public static void pideDatosJuego(Juego juego) {
+		
 		juego.setNombre(EntradaTeclado.leeStringConMensaje("introduce nombre"));
 		
 		
@@ -39,6 +44,7 @@ public class PedirDatos {
 		
 		
 		juego.setEditor(EntradaTeclado.leeStringConMensaje("introduce editor"));
+
 		Plataforma.InformePlataforma();
 		juego.setPlataforma(Plataforma.dimePlataforma(EntradaTeclado.leeStringConMensaje("introduce plataforma")));
 		
@@ -67,6 +73,39 @@ public class PedirDatos {
 			}
 			
 		} while (generoIncorrecto);
+
+		
+		
+		
+		boolean platIncorrecta = true;
+		Plataforma plat;
+		do {
+			try {
+				Plataforma.InformePlataforma();
+				plat = Plataforma.dimePlataforma(EntradaTeclado.leeStringConMensaje("introduce plataforma"));
+				if(plat == null){
+					throw new ExcepcionPlat();
+				}
+				juego.setPlataforma(plat);
+				platIncorrecta = false;
+			}
+			catch (InputMismatchException e) {
+				System.out.println("Inserte uno de los códigos");
+			}
+			catch (Throwable t) {
+				System.out.println(((ExcepcionPlat) t).getMensaje());
+			}
+		} while (platIncorrecta);
+		
+		
+		Genero.InformeGenero();
+		try {
+			juego.setGenero(Genero.dimeGenero(EntradaTeclado.leeIntConMensaje("introduce genero")));
+		} catch (ExcepcionGenero e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 	
 	
