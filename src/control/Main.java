@@ -1,5 +1,6 @@
 package control;
 
+
 import dao.DAOJuegoImpl;
 import services.JuegoServiceImpl;
 
@@ -8,6 +9,7 @@ public class Main {
 		new DAOJuegoImpl().cargarJuegos();
 		new JuegoServiceImpl().listarJuegos();
 		new GestionJuegos().inicio();
+		new DAOJuegoImpl().listarJuegosPorGenero();
 
 }
 }
