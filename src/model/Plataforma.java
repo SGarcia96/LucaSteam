@@ -15,9 +15,9 @@ public enum Plataforma {
 	ARCADE ("NG", ""), 
 	PC ("PC", ""),
 	PLAY_STATION("PS", "Sony"),
-	PLAY_STATION2("PS", "Sony"),
-	PLAY_STATION3("PS", "Sony"),
-	PLAY_STATION4("PS", "Sony"),
+	PLAY_STATION2("PS2", "Sony"),
+	PLAY_STATION3("PS3", "Sony"),
+	PLAY_STATION4("PS4", "Sony"),
 	PSP("PSP", "Sony"), 
 	PS_VITA("PSV", "Sony"), 
 	SATURN ("SAT", "Sega"), 
@@ -47,11 +47,11 @@ public enum Plataforma {
 	
 	public static Plataforma dimePlataforma(String codigo) {
 		for(Plataforma plataforma: Plataforma.values()) {
-			if (plataforma.codigo.equals(codigo)) {
+			if (plataforma.codigo.equalsIgnoreCase(codigo)) {
 				return plataforma;
 			}
 		}
-		System.out.println("El codigo seleccionado para la plataforma es incorrecto");
+		System.out.println("El codigo seleccionado para la plataforma es incorrecto: " + codigo);
 		return null;
 	}
 	
