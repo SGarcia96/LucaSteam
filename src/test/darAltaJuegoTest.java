@@ -1,7 +1,8 @@
 package test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -9,16 +10,16 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
+import dao.DAOJuegoImpl;
 import model.Genero;
 import model.Juego;
 import model.Plataforma;
-import services.JuegoServiceImpl;
 
 public class darAltaJuegoTest {
 
 	private static Logger logger;
-	private static Juego juego;
+	private Juego juego;
+	private DAOJuegoImpl daoJuego;
 
 	static {
 		try {
@@ -29,27 +30,33 @@ public class darAltaJuegoTest {
 	}
 
 	@BeforeEach
-	public static void inicioTest() {
+	public void inicioTest() {
 		logger.info(">>>>> Inicio test");
 		juego = new Juego();
+		daoJuego = new DAOJuegoImpl();
 		// List listjuegos...
 	}
 
 	@AfterEach
-	public static void finTest() {
+	public void finTest() {
 		logger.info(">>>>> Fin test");
 	}
 
 	/*** TEST ***/
 	@Test
 	public void juegoSeCreaCorrectamente() {
+		// Given
+		juego.setNombre("mario");
 		// When
-		new JuegoServiceImpl().darDeAlta(juego);
+		daoJuego.darDeAlta(juego);
+		ArrayList<Juego> juegos = (ArrayList<Juego>) daoJuego.getListaJuegos();
 		// Then
+		assertThat(juegos).anyMatch(e -> e.getNombre().equals("mario"));
 	}
 	
 	@Test
 	public void juegoNotDuplicated() {
+		/*
 		// Given
 		Juego juegoRepe = new Juego();
 		juegoRepe.setNombre("mario");
@@ -59,6 +66,8 @@ public class darAltaJuegoTest {
 		juego.setPlataforma(Plataforma.ARCADE);
 		// Then
 		//assertThat...
+		 * 
+		 */
 	}
 
 	@Test
@@ -66,8 +75,8 @@ public class darAltaJuegoTest {
 		// Given
 
 		// When
-		juego.setFecha(1500);
+		
 		// Then
-		assertThat("fecha no valida");
+		
 	}
 }

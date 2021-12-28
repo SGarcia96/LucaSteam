@@ -1,5 +1,6 @@
 package exceptions;
 
+@SuppressWarnings("serial")
 public class ExcepcionFecha extends Throwable{
 	
 	private String mensaje = "Solo anyos a partir de 1950";
