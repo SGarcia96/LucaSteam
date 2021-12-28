@@ -60,12 +60,15 @@ public class DAOJuegoImpl implements IDAOJuego {
 		}
 	}
 	@Override	
-		public void listarJuegosPorGenero(Genero genero) {
+		public List<Juego> listarJuegosPorGenero(Genero genero) {
+			List<Juego> juegosFiltradosPorGenero = new ArrayList<>();
 			for(Juego juego: listaJuegos) {
 				if(genero.equals(juego.getGenero())) {
 					System.out.println(juego);
+					juegosFiltradosPorGenero.add(juego);
 				}
 			}
+			return juegosFiltradosPorGenero;
 		}
 			
 	
