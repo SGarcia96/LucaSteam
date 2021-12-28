@@ -9,12 +9,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
 import exceptions.ExcepcionGenero;
-
-import lombok.Getter;
-import lombok.Setter;
-
 import model.Genero;
 import model.Juego;
 import model.Plataforma;
@@ -26,7 +21,7 @@ public class DAOJuegoImpl implements IDAOJuego {
 
 	private static Logger logger;
 
-	@Getter @Setter private List<Juego> listaJuegos = new ArrayList<>();
+	private List<Juego> listaJuegos = new ArrayList<>();
 
 	static {
 		try {
@@ -35,7 +30,6 @@ public class DAOJuegoImpl implements IDAOJuego {
 			System.out.println("Logger no funciona correctamente");
 		}
 	}
-	
 
 	@Override
 	public void darDeAlta() {
@@ -68,15 +62,12 @@ public class DAOJuegoImpl implements IDAOJuego {
 		}
 	}
 	@Override	
-		public List<Juego> listarJuegosPorGenero(Genero genero) {
-			List<Juego> juegosFiltradosPorGenero = new ArrayList<>();
+		public void listarJuegosPorGenero(Genero genero) {
 			for(Juego juego: listaJuegos) {
 				if(genero.equals(juego.getGenero())) {
 					System.out.println(juego);
-					juegosFiltradosPorGenero.add(juego);
 				}
 			}
-			return juegosFiltradosPorGenero;
 		}
 			
 	

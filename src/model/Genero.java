@@ -1,5 +1,5 @@
 package model;
-
+import exceptions.ExcepcionGenero;
 public enum Genero {
 
 	ACTION(1),
@@ -27,10 +27,9 @@ public enum Genero {
 		return codigo;
 	}
 	
-	public static Genero dimeGenero(int codigo) {
-		if(codigo > generos.length || codigo < 0) {
-			System.out.println("El numero seleccionado para el genero es incorrecto");
-			return null;
+	public static Genero dimeGenero(int codigo) throws ExcepcionGenero {
+		if(codigo > generos.length || codigo <= 0) {
+			throw new ExcepcionGenero();
 		} else {
 			return generos[codigo - 1];
 		}
