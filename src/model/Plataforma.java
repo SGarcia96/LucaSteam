@@ -2,31 +2,31 @@ package model;
 
 public enum Plataforma {
 	
-	ATARI2600 ("2600", "Atari"), 
-	N3DS ("3DS", "Nintendo"), 
-	DREAMCAST ("DC", "Sega"),
-	DS ("DS", "Nintendo"),
+	ATARI_2600 ("2600", "Atari"), 
+	NINTENDO_3DS ("3DS", "Nintendo"), 
+	SEGA_DREAMCAST ("DC", "Sega"),
+	NINTENDO_DS ("DS", "Nintendo"),
 	GAMEBOY ("GB", "Nintendo"), 
 	GAMEBOY_ADVANCE ("GBA", "Nintendo"), 
 	GAMECUBE ("GC", "Nintendo") ,
-	GENESIS ("GEN", "Sega"), 
-	N64 ("N64", "Nintendo"), 
+	SEGA_GENESIS ("GEN", "Sega"), 
+	NINTENDO_64 ("N64", "Nintendo"), 
 	NES ("NES", "Nintendo"), 
 	ARCADE ("NG", ""), 
 	PC ("PC", ""),
 	PLAY_STATION("PS", "Sony"),
-	PLAY_STATION2("PS", "Sony"),
-	PLAY_STATION3("PS", "Sony"),
-	PLAY_STATION4("PS", "Sony"),
+	PLAY_STATION_2("PS", "Sony"),
+	PLAY_STATION_3("PS", "Sony"),
+	PLAY_STATION_4("PS", "Sony"),
 	PSP("PSP", "Sony"), 
 	PS_VITA("PSV", "Sony"), 
-	SATURN ("SAT", "Sega"), 
+	SEGA_SATURN ("SAT", "Sega"), 
 	SUPER_NES("SNES", "Nintendo"), 
 	WII ("Wii", "Nintendo"), 
-	WIIU ("WiiU", "Nintendo"), 
+	WII_U ("WiiU", "Nintendo"), 
 	XBOX ("XB", "Microsoft"),
-	XBOX360 ("X360", "Microsoft"),
-	XONE ("XOne", "Microsoft");
+	XBOX_360 ("X360", "Microsoft"),
+	XBOX_ONE ("XOne", "Microsoft");
 	
 	private static Plataforma[] plataformas = Plataforma.values();
 	
