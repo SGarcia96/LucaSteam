@@ -5,6 +5,8 @@ import org.apache.logging.log4j.Logger;
 
 import dao.DAOJuegoImpl;
 import dao.IDAOJuego;
+import model.Juego;
+import model.Genero;
 
 public class JuegoServiceImpl implements IJuegoService{
 	
@@ -26,5 +28,36 @@ public class JuegoServiceImpl implements IJuegoService{
 		logger.debug("Llamando al metodo listar juegos de la capa de datos");
 		daoJuego.listarJuegos();
 	}
-
+	
+	//new
+	 
+	@Override
+	public void listarJuegosPorGenero() {
+		logger.info("Inicio del metodo listar juegos por genero en la capa de servicios");
+		logger.debug("Llamando al metodo listar juegos por genero de la capa de datos");
+		//daoJuego.listarJuegosPorGenero();
+	}
+	@Override
+	public void listarJuegosPorGenero(Genero genero) {
+		logger.info("Inicio del metodo listar juegos por genero en la capa de servicios");
+		logger.debug("Llamando al metodo listar juegos por genero de la capa de datos");
+		//daoJuego.listarJuegosPorGenero(genero);
+	}
+	
+	
+	@Override
+	public void darDeAlta() {
+		logger.info("Inicio del metodo dar de alta en la capa de servicios");
+		logger.debug("Llamando al metodo dar de alta de la capa de datos");
+		daoJuego.darDeAlta();
+	}
+	@Override
+	public void darDeAlta(Juego juego) {
+		logger.info("Inicio del metodo dar de alta en la capa de servicios");
+		logger.debug("Llamando al metodo dar de alta de la capa de datos");
+		daoJuego.darDeAlta(juego);
+	}
+	
+	
+	
 }
