@@ -9,7 +9,9 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import model.Genero;
 import model.Juego;
+import model.Plataforma;
 import utils.PedirDatos;
 
 public class DAOJuegoImpl implements IDAOJuego {
@@ -36,7 +38,7 @@ public class DAOJuegoImpl implements IDAOJuego {
 	@Override
 	public void darDeAlta(Juego juego) {
 		listaJuegos.add(juego);
-		System.out.println("se ha agregado el juego:" + juego);
+		System.out.println("se ha agregado el juego: " + juego);
 	}
 
 	@Override
@@ -51,6 +53,40 @@ public class DAOJuegoImpl implements IDAOJuego {
 				System.out.println(juego);
 			}
 		}
+	}
+	
+	public void cargarJuegos() {
+		String linea;
+		String[] juegoArray = new String[5];
+		Juego juego = new Juego();
+		int cont = 0;
+		try(FileReader fileReader = new FileReader("vgsales.csv");
+				BufferedReader bufferedReader = new BufferedReader(fileReader)){
+			while((linea = bufferedReader.readLine()) != null) {
+				if(cont > 0) {
+					juegoArray = linea.split(",");
+//					System.out.println(linea);
+//					System.out.println(Arrays.toString(juegoArray));
+					juego.setNombre(juegoArray[0]);
+					juego.setPlataforma(Plataforma.dimePlataforma(juegoArray[1]));
+					try {
+						juego.setFecha(Integer.parseInt(juegoArray[2]));
+					} catch(NumberFormatException e) {
+						System.out.println("No se ha insertado un numero");
+					}
+					juego.setGenero(Genero.dimeGenero(juegoArray[3]));
+					juego.setEditor(juegoArray[4]);
+					this.darDeAlta(juego);
+//					System.out.println(juego);
+//					System.out.println("===========================================");
+				}
+				cont++;
+			}
+			
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }
