@@ -21,7 +21,7 @@ public enum Genero {
 	}
 	
 	public static Genero dimeGenero(int codigo) {
-		if(codigo > generos.length) {
+		if(codigo > generos.length || codigo < 0) {
 			System.out.println("El numero seleccionado para el genero es incorrecto");
 			return null;
 		} else {
