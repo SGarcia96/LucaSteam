@@ -1,6 +1,10 @@
 package dao;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,9 +15,9 @@ import utils.PedirDatos;
 public class DAOJuegoImpl implements IDAOJuego {
 
 	private static Logger logger;
-	
+
 	private List<Juego> listaJuegos = new ArrayList<>();
-	
+
 	static {
 		try {
 			logger = LogManager.getLogger(DAOJuegoImpl.class);
@@ -21,7 +25,7 @@ public class DAOJuegoImpl implements IDAOJuego {
 			System.out.println("Logger no funciona correctamente");
 		}
 	}
-	
+
 	@Override
 	public void darDeAlta() {
 		Juego juego = new Juego();
@@ -47,7 +51,6 @@ public class DAOJuegoImpl implements IDAOJuego {
 				System.out.println(juego);
 			}
 		}
-
 	}
 
 }
