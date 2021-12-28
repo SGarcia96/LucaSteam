@@ -9,11 +9,10 @@ import model.Juego;
 import utils.PedirDatos;
 
 public class DAOJuegoImpl implements IDAOJuego {
-	
-	private static Logger logger;
 
-<<<<<<< HEAD
-	List<Juego> listaJuegos = new ArrayList<>();
+	private static Logger logger;
+	
+	private List<Juego> listaJuegos = new ArrayList<>();
 	
 	static {
 		try {
@@ -22,10 +21,7 @@ public class DAOJuegoImpl implements IDAOJuego {
 			System.out.println("Logger no funciona correctamente");
 		}
 	}
-=======
-	private List<Juego> listaJuegos = new ArrayList<>();
->>>>>>> 3b03fba12a0d370175a94fc6c873b5be8517752b
-
+	
 	@Override
 	public void darDeAlta() {
 		Juego juego = new Juego();
@@ -38,23 +34,20 @@ public class DAOJuegoImpl implements IDAOJuego {
 		listaJuegos.add(juego);
 		System.out.println("se ha agregado el juego:" + juego);
 	}
-<<<<<<< HEAD
 
 	@Override
 	public void listarJuegos() {
 		logger.info("Inicio del metodo listar juegos en la capa de datos");
-		if(listaJuegos.isEmpty()) {
+		if (listaJuegos.isEmpty()) {
 			logger.warn("No hay ningun juego registrado");
 			System.out.println("No hay ningun juego registrado");
 		} else {
 			logger.debug("Mostrando la lista de juegos");
-			for(Juego juego: listaJuegos) {
+			for (Juego juego : listaJuegos) {
 				System.out.println(juego);
 			}
 		}
-		
+
 	}
 
-=======
->>>>>>> 3b03fba12a0d370175a94fc6c873b5be8517752b
 }
