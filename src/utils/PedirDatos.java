@@ -2,8 +2,8 @@ package utils;
 
 import java.util.InputMismatchException;
 
-import exceptions.Excepcion;
 import exceptions.ExcepcionFecha;
+import exceptions.ExcepcionPlat;
 import model.Genero;
 import model.Juego;
 import model.Plataforma;
@@ -11,6 +11,7 @@ import model.Plataforma;
 public class PedirDatos {
 	
 	public static void pideDatosJuego(Juego juego) {
+		
 		juego.setNombre(EntradaTeclado.leeStringConMensaje("introduce nombre"));
 		
 		
@@ -36,8 +37,30 @@ public class PedirDatos {
 		
 		
 		juego.setEditor(EntradaTeclado.leeStringConMensaje("introduce editor"));
+		
+		
 		Plataforma.InformePlataforma();
-		juego.setPlataforma(Plataforma.dimePlataforma(EntradaTeclado.leeStringConMensaje("introduce plataforma")));
+		boolean platIncorrecta = true;
+		Plataforma plat;
+		do {
+			try {
+				plat = Plataforma.dimePlataforma(EntradaTeclado.leeStringConMensaje("introduce plataforma"));
+				if(plat == null){
+					throw new ExcepcionPlat();
+				}
+				System.out.println(plat);
+				juego.setPlataforma(plat);
+				platIncorrecta = false;
+			}
+			catch (InputMismatchException e) {
+				System.out.println("Inserte uno de los códigos");
+			}
+			catch (Throwable t) {
+				System.out.println(((ExcepcionPlat) t).getMensaje());
+			}
+		} while (platIncorrecta);
+		
+		
 		Genero.InformeGenero();
 		juego.setGenero(Genero.dimeGenero(EntradaTeclado.leeIntConMensaje("introduce genero")));
 	}
