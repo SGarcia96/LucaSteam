@@ -6,11 +6,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import model.Juego;
+import utils.PedirDatos;
 
 public class DAOJuegoImpl implements IDAOJuego {
 	
 	private static Logger logger;
 
+<<<<<<< HEAD
 	List<Juego> listaJuegos = new ArrayList<>();
 	
 	static {
@@ -20,17 +22,23 @@ public class DAOJuegoImpl implements IDAOJuego {
 			System.out.println("Logger no funciona correctamente");
 		}
 	}
+=======
+	private List<Juego> listaJuegos = new ArrayList<>();
+>>>>>>> 3b03fba12a0d370175a94fc6c873b5be8517752b
 
 	@Override
 	public void darDeAlta() {
 		Juego juego = new Juego();
+		PedirDatos.pideDatosJuego(juego);
+		darDeAlta(juego);
 	}
 
 	@Override
 	public void darDeAlta(Juego juego) {
 		listaJuegos.add(juego);
-		System.out.println("se ha dado de alta el juego: " + juego);
+		System.out.println("se ha agregado el juego:" + juego);
 	}
+<<<<<<< HEAD
 
 	@Override
 	public void listarJuegos() {
@@ -47,4 +55,6 @@ public class DAOJuegoImpl implements IDAOJuego {
 		
 	}
 
+=======
+>>>>>>> 3b03fba12a0d370175a94fc6c873b5be8517752b
 }
