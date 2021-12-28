@@ -1,14 +1,22 @@
 package test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import model.Editor;
+import model.Genero;
+import model.Juego;
+import model.Plataforma;
+
 public class darAltaJuegoTest {
 	
 	private static Logger logger;
+	private Juego juego = new Juego();
 	
 	static {
 		try {
@@ -31,12 +39,13 @@ public class darAltaJuegoTest {
 	
 	/*** TEST ***/
 	@Test
-	public void fechaDebeSerInt() {
+	public void fechaDebeSerMenorA1951() {
 		// Given
-		
+		juego.setFecha(1500);
 		// When
 		
 		// Then
+		assertThat("fecha no valida");
 	}
 
 }
