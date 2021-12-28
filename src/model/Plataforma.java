@@ -47,7 +47,7 @@ public enum Plataforma {
 	
 	public static Plataforma dimePlataforma(String codigo) {
 		for(Plataforma plataforma: Plataforma.values()) {
-			if (plataforma.codigo.equals(codigo)) {
+			if (plataforma.codigo.equalsIgnoreCase(codigo)) {
 				return plataforma;
 			}
 		}
