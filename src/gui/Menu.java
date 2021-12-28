@@ -1,5 +1,12 @@
 package gui;
 
 public class Menu {
-	// comentario
+	public static void showMenuPrincipal() {
+		System.out.println("===========================");
+		System.out.println("=== GESTION DE JUEGASOS ===");
+		System.out.println("===========================");
+		System.out.println("Selecciona opción:");
+		System.out.println("1) Dar de alta un juego");
+		System.out.println("0) Salir");
+	}
 }
