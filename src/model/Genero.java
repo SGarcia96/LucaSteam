@@ -3,10 +3,17 @@ package model;
 public enum Genero {
 
 	ACTION(1),
-	SPORTS(2),
-	MISC(3),
-	ROLE_PLAYING(4),
-	SHOOTER(5);
+	AVENTURE(2),
+	FIGHTING(3),
+	MISC(4),
+	PLATAFORM(5),
+	PUZZLE(6),
+	RACING(7),
+	ROLE_PLAYING(8),
+	SHOOTER(9),
+	SIMULATION(10),
+	SPORTS(11),
+	STRATEGY(12);
 	
 	private final int codigo;
 	
