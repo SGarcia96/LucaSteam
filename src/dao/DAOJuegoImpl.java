@@ -34,7 +34,7 @@ public class DAOJuegoImpl implements IDAOJuego {
 
 	@Override
 	public void listarJuegos() {
-		logger.info("Inicio del metodo listar juegos");
+		logger.info("Inicio del metodo listar juegos en la capa de datos");
 		if(listaJuegos.isEmpty()) {
 			logger.warn("No hay ningun juego registrado");
 			System.out.println("No hay ningun juego registrado");
