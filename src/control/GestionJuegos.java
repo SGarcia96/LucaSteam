@@ -7,41 +7,42 @@ import services.IJuegoService;
 import services.JuegoServiceImpl;
 
 public class GestionJuegos {
-	
+
 	private IJuegoService services = new JuegoServiceImpl();
-	
+
 	public void inicio() {
 		boolean seguir = true;
 		do {
 			Menu.showMenuPrincipal();
 			seguir = this.seleccionOpciones();
-		} while(seguir);
+		} while (seguir);
 	}
-	
-    public boolean seleccionOpciones() {
 
-        boolean continuar = true;
+	public boolean seleccionOpciones() {
 
-        try {
-            switch (EntradaTeclado.leeInt()) {
-                case 2:
-                    services.listarJuegos();
-                	
-                    break;
+		boolean continuar = true;
 
-                case 0:
-                    continuar = salir();
-                    break;
-            }
-        } catch (Exception e) {
-            System.out.println("error: " + e.toString());
-        }
-        return continuar;
-    }
+		try {
+			switch (EntradaTeclado.leeInt()) {
+			case 1:
+				services.darDeAlta();
+				break;
+			case 2:
+				services.listarJuegos();
+				break;
+			case 0:
+				continuar = salir();
+				break;
+			}
+		} catch (Exception e) {
+			System.out.println("error: " + e.toString());
+		}
+		return continuar;
+	}
 
-    private boolean salir() throws Exception {
-        String sino = EntradaTeclado.leeStringConMensaje("¿Estas seguro que quieres salir? S/N");
-        return (sino.toUpperCase().charAt(0) != 'S');
-    }
+	private boolean salir() throws Exception {
+		String sino = EntradaTeclado.leeStringConMensaje("¿Estas seguro que quieres salir? S/N");
+		return (sino.toUpperCase().charAt(0) != 'S');
+	}
 
 }

@@ -3,13 +3,13 @@ package model;
 public enum Genero {
 
 	ACTION(1),
-	AVENTURE(2),
+	ADVENTURE(2),
 	FIGHTING(3),
 	MISC(4),
-	PLATAFORM(5),
+	PLATFORM(5),
 	PUZZLE(6),
 	RACING(7),
-	ROLE_PLAYING(8),
+	ROLEPLAYING(8),
 	SHOOTER(9),
 	SIMULATION(10),
 	SPORTS(11),
@@ -34,6 +34,20 @@ public enum Genero {
 		} else {
 			return generos[codigo - 1];
 		}
+	}
+	
+	public static Genero dimeGenero(String texto) {
+		for(Genero genero: generos) {
+			if(genero.equals(Genero.ROLEPLAYING)) {
+				if ( texto.toUpperCase().equals("ROLE-PLAYING")) {
+					return genero;
+				}
+			} else if (genero.toString().equals(texto.toUpperCase())) {
+				return genero;
+			}
+		}
+		System.out.println("El genero insertado es incorrecto: " + texto);
+		return null;
 	}
 	
 	public static void InformeGenero() {

@@ -51,7 +51,7 @@ public enum Plataforma {
 				return plataforma;
 			}
 		}
-		System.out.println("El codigo seleccionado para la plataforma es incorrecto");
+		System.out.println("El codigo seleccionado para la plataforma es incorrecto: " + codigo);
 		return null;
 	}
 	
