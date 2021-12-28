@@ -30,12 +30,11 @@ public class GestionJuegos {
 			case 2:
 				services.listarJuegos();
 				break;
-<<<<<<< HEAD
+
 			case 3:
 				services.cargarJuegos();
 				break;
-=======
->>>>>>> nombresPlataformas
+				
 			case 0:
 				continuar = salir();
 				break;

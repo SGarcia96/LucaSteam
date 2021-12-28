@@ -15,10 +15,7 @@ public interface IJuegoService {
 	public void darDeAlta();
 
 	public void darDeAlta(Juego juego);
-<<<<<<< HEAD
-	
+
 	public void cargarJuegos();
-=======
->>>>>>> nombresPlataformas
 
 }
