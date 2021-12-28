@@ -39,16 +39,16 @@ public class PedirDatos {
 		juego.setEditor(EntradaTeclado.leeStringConMensaje("introduce editor"));
 		
 		
-		Plataforma.InformePlataforma();
+		
 		boolean platIncorrecta = true;
 		Plataforma plat;
 		do {
 			try {
+				Plataforma.InformePlataforma();
 				plat = Plataforma.dimePlataforma(EntradaTeclado.leeStringConMensaje("introduce plataforma"));
 				if(plat == null){
 					throw new ExcepcionPlat();
 				}
-				System.out.println(plat);
 				juego.setPlataforma(plat);
 				platIncorrecta = false;
 			}
