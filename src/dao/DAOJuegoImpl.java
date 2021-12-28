@@ -65,6 +65,11 @@ public class DAOJuegoImpl implements IDAOJuego {
 			while((linea = bufferedReader.readLine()) != null) {
 				if(cont > 0) {
 					juegoArray = linea.split(",");
+<<<<<<< HEAD
+=======
+//					System.out.println(linea);
+//					System.out.println(Arrays.toString(juegoArray));
+>>>>>>> nombresPlataformas
 					juego.setNombre(juegoArray[0]);
 					juego.setPlataforma(Plataforma.dimePlataforma(juegoArray[1]));
 					try {
@@ -75,6 +80,11 @@ public class DAOJuegoImpl implements IDAOJuego {
 					juego.setGenero(Genero.dimeGenero(juegoArray[3]));
 					juego.setEditor(juegoArray[4]);
 					this.darDeAlta(juego);
+<<<<<<< HEAD
+=======
+//					System.out.println(juego);
+//					System.out.println("===========================================");
+>>>>>>> nombresPlataformas
 				}
 				cont++;
 			}
