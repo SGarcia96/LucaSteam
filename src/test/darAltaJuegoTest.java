@@ -6,8 +6,10 @@ import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Ignore;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import dao.DAOJuegoImpl;
@@ -55,25 +57,39 @@ public class darAltaJuegoTest {
 	}
 	
 	@Test
-	public void juegoNotDuplicated() {
-		/*
+	public void listaJuegosTieneTamanyoEsperado() {
 		// Given
-		Juego juegoRepe = new Juego();
-		juegoRepe.setNombre("mario");
-		juegoRepe.setPlataforma(Plataforma.ARCADE);
+		juego.setNombre("mario");
 		// When
-		juego.setNombre("nombre");
-		juego.setPlataforma(Plataforma.ARCADE);
+		daoJuego.darDeAlta(juego);
+		ArrayList<Juego> juegos = (ArrayList<Juego>) daoJuego.getListaJuegos();
 		// Then
-		//assertThat...
-		 * 
-		 */
+		assertThat(juegos).hasSize(juegos.size());
 	}
+	
+	@Test
+	public void juegoNotDuplicated() {
+		// duplicated if nombre, plataforma is equal
+		// Given
+		juego.setNombre("mario");
+		juego.setPlataforma(Plataforma.ARCADE);
+		Juego nuevoJuego = new Juego();
+		nuevoJuego.setNombre("mario");
+		nuevoJuego.setPlataforma(Plataforma.ARCADE);
+		// When
+		daoJuego.darDeAlta(juego);
+		daoJuego.darDeAlta(nuevoJuego);
+		ArrayList<Juego> juegos = (ArrayList<Juego>) daoJuego.getListaJuegos();
+		// Then
+		assertThat(juegos).hasSize(1);
+	}
+	
 
 	@Test
+	@Disabled
 	public void fechaDebeSerMenorA1951() {
 		// Given
-
+		
 		// When
 		
 		// Then
