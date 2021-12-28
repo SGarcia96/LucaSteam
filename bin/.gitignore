@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 /test/
 /model/
 /control/
 /gui/
+=======
+/gui/
+/services/
+/control/
+>>>>>>> dca3e1d0428c5dedbc0d2faef64d07d76e18d435
