@@ -24,6 +24,9 @@ public class GestionJuegos {
 
 		try {
 			switch (EntradaTeclado.leeInt()) {
+			case 1:
+				services.darDeAlta();
+				break;
 			case 2:
 				services.listarJuegos();
 				break;
