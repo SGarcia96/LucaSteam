@@ -1,5 +1,6 @@
 /control/
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 /control/
 /gui/
@@ -12,3 +13,10 @@
 /dao/
 =======
 >>>>>>> 5d576d83703bdb80b86cc11c1bbe748c64a7b411
+=======
+/test/
+/model/
+/dao/
+/services/
+/gui/
+>>>>>>> 2bf89d90808d81867df8e4ae17998f46dcc96967

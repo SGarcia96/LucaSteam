@@ -59,4 +59,11 @@ public class JuegoServiceImpl implements IJuegoService {
 		daoJuego.darDeAlta(juego);
 	}
 
+	@Override
+	public void cargarJuegos() {
+		logger.info("Inicio del metodo cargar juego en la capa de servicios");
+		logger.debug("Llamando al metodo cargar juego de la capa de datos");
+		daoJuego.cargarJuegos();
+	}
+
 }
