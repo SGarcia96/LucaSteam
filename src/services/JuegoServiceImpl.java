@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 import dao.DAOJuegoImpl;
 import dao.IDAOJuego;
 import model.Juego;
+import model.Plataforma;
 import model.Genero;
 
 public class JuegoServiceImpl implements IJuegoService {
@@ -100,6 +101,20 @@ public class JuegoServiceImpl implements IJuegoService {
 		logger.info("Inicio del metodo listar juegos anyo par en la capa de servicios");
 		logger.debug("Llamando al metodo listar juegos anyo par en la capa de datos");
 		daoJuego.listarJuegosPorAnyoPar();
+	}
+	
+	@Override
+	public void listarJuegosPorPlataforma() {
+		logger.info("Inicio del metodo listar juegos por plataforma en la capa de servicios");
+		logger.debug("Llamando al metodo listar juegos por plataforma en la capa de datos");
+		daoJuego.listarJuegosPorPlataforma();
+	}
+	
+	@Override
+	public void listarJuegosPorPlataforma(Plataforma plataforma) {
+		logger.info("Inicio del metodo listar juegos por plataforma en la capa de servicios");
+		logger.debug("Llamando al metodo listar juegos por plataforma de la capa de datos");
+		 daoJuego.listarJuegosPorPlataforma(plataforma);
 	}
 	
 	

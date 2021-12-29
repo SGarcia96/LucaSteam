@@ -1,6 +1,7 @@
 package services;
 
 import model.Juego;
+import model.Plataforma;
 
 import java.util.Set;
 
@@ -14,6 +15,10 @@ public interface IJuegoService {
 	public void listarJuegosPorGenero();
 
 	public void listarJuegosPorGenero(Genero genero);
+	
+	public void listarJuegosPorPlataforma();
+
+	public void listarJuegosPorPlataforma(Plataforma plataforma);
 	
 	public void listarJuegosNintendo();
 

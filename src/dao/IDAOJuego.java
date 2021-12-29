@@ -16,6 +16,9 @@ public interface IDAOJuego {
 	public void listarJuegosPorGenero();
 	public List<Juego> listarJuegosPorGenero(Genero genero);
 	
+	public void listarJuegosPorPlataforma();
+	public List<Juego> listarJuegosPorPlataforma(Plataforma plataforma);
+	
 	public void listarJuegosNintendo();
 	public List<Juego> listarJuegosNintendo(String fabricante);
 	

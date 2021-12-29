@@ -56,6 +56,10 @@ public class GestionJuegos {
 			case 8:
 				services.listarGeneros();
 				break;
+			
+			case 9:
+				services.listarJuegosPorPlataforma();
+				break;
 				
 			case 10:
 				services.listarJuegosPorAnyoPar();
