@@ -10,6 +10,7 @@ public class Menu {
 		System.out.println("2) Listar juegos");
 		System.out.println("3) Cargar juegos fichero");
 		System.out.println("4) Listar juegos por genero");
+		System.out.println("6) Listar editores");
 		System.out.println("0) Salir");
 	}
 }

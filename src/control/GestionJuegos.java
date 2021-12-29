@@ -38,6 +38,10 @@ public class GestionJuegos {
 			case 4:
 				services.listarJuegosPorGenero();;
 				break;	
+				
+			case 6:
+				services.listarEditores();
+				break;
 
 			case 0:
 				continuar = salir();
