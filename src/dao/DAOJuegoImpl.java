@@ -9,7 +9,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
+import exceptions.ExcepcionDuplicado;
 import exceptions.ExcepcionGenero;
 
 import lombok.Getter;
@@ -41,13 +41,26 @@ public class DAOJuegoImpl implements IDAOJuego {
 	public void darDeAlta() {
 		Juego juego = new Juego();
 		PedirDatos.pideDatosJuego(juego);
-		darDeAlta(juego);
+			darDeAlta(juego);
+
 	}
 
 	@Override
-	public void darDeAlta(Juego juego) {
-		listaJuegos.add(juego);
-		System.out.println("se ha agregado el juego: " + juego);
+	public void darDeAlta(Juego juego){
+		try {
+			for (Juego game: listaJuegos) {
+				if (game.getNombre().equals(juego.getNombre()) &&
+						game.getPlataforma().equals(juego.getPlataforma())){
+					throw new ExcepcionDuplicado();
+				}
+			}
+			
+			listaJuegos.add(juego);
+			System.out.println("se ha agregado el juego: " + juego);
+			
+		} catch (ExcepcionDuplicado e) {
+			System.out.println(e.getMensaje());
+		}	
 	}
 	
 	@Override

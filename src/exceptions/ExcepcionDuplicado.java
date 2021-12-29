@@ -1,6 +1,6 @@
 package exceptions;
 
-public class ExcepcionRepetido extends Throwable{
+public class ExcepcionDuplicado extends Throwable{
 	
 	private String mensaje = "Ese juego ya existe";
 	
@@ -8,11 +8,11 @@ public class ExcepcionRepetido extends Throwable{
 		return mensaje;
 	}
 	
-	public ExcepcionRepetido() {
+	public ExcepcionDuplicado() {
 		super();
 	}
 	
-	public ExcepcionRepetido(String msg) {
+	public ExcepcionDuplicado(String msg) {
 		super(msg);
 	}
 }
