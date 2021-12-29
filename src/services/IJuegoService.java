@@ -11,6 +11,8 @@ public interface IJuegoService {
 	public void listarJuegosPorGenero();
 
 	public void listarJuegosPorGenero(Genero genero);
+	
+	public void listarJuegosNintendo();
 
 	public void darDeAlta();
 

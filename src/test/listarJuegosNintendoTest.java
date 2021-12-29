@@ -2,9 +2,6 @@ package test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -18,46 +15,56 @@ import model.Genero;
 import model.Juego;
 import model.Plataforma;
 
-public class listarJuegosTest {
+public class listarJuegosNintendoTest {
 	
 	private static Logger logger;
-	private Juego juego;
 	private DAOJuegoImpl daoJuego;
-	
+
 	static {
 		try {
-			logger = LogManager.getLogger(listarJuegosTest.class);
+			logger = LogManager.getLogger(listarJuegosNintendoTest.class);
 		} catch (Throwable e) {
 			System.out.println("Don't work");
 		}
 	}
-	
+
 	@BeforeEach
 	public void inicioTest() {
 		logger.info(">>>>> Inicio test");
 		daoJuego = new DAOJuegoImpl();
 	}
-	
+
 	@AfterEach
 	public void finTest() {
 		logger.info(">>>>> Fin test");
 	}
-	
-	
+
 	/*** TEST ***/
 	@Test
-	public void comprobarNumeroDeLineas() {
+	public void listaSoloJuegosDeFabricanteNintendo() {
 		// Given
-		juego = new Juego("Spirits & Spells", 2003, "Wanadoo", Genero.PLATFORM, Plataforma.GAMEBOY_ADVANCE);
-		Juego juego2 = new Juego("Teslagrad",2015, "Rain Games", Genero.PLATFORM, Plataforma.PS_VITA);
+		Juego juego = new Juego("Spirits & Spells", 2003, "Wanadoo", Genero.PLATFORM, Plataforma.GAMEBOY_ADVANCE);
+		Juego juego2 = new Juego("Teslagrad",2015, "Rain Games", Genero.PLATFORM, Plataforma.GAMECUBE);
 		Juego juego3 = new Juego("End of Nations", 2012, "Trion Worlds", Genero.STRATEGY, Plataforma.PC);
+		Juego juego4 = new Juego("Mighty No. 9", 2016, "Deep Silver", Genero.PLATFORM, Plataforma.XBOX_ONE);
 		// When
 		daoJuego.darDeAlta(juego);
 		daoJuego.darDeAlta(juego2);
 		daoJuego.darDeAlta(juego3);
-		int contador = daoJuego.listarJuegos();
+		daoJuego.darDeAlta(juego4);
+		List<Juego> juegos = daoJuego.listarJuegosNintendo("nintendo");
 		// Then
-		assertThat(contador).isEqualTo(3);
+		assertThat(juegos).
+					hasSize(2).
+					extracting(Juego::getNombre).
+					containsExactlyInAnyOrder("Spirits & Spells","Teslagrad");
 	}
 	
+	@Test
+	public void listaVacia() {
+		// When
+		List<Juego> juegos = daoJuego.listarJuegosPorGenero(Genero.ADVENTURE);
+		// Then
+		assertThat(juegos).hasSize(0);
+	}
 }
