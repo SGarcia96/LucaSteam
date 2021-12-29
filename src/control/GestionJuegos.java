@@ -30,37 +30,30 @@ public class GestionJuegos {
 			case 2:
 				services.listarJuegos();
 				break;
-
 			case 3:
 				services.cargarJuegos();
 				break;
 			case 4:
 				services.listarJuegosPorGenero();
 				break;
-
-
 			case 7:
 				services.listarJuegosSigloXX();
 				break;
-
-
 			case 5:
 				services.listarJuegosNintendo();
 				break;
-
-
 			case 6:
 				services.listarEditores();
 				break;
-				
 			case 8:
 				services.listarGeneros();
 				break;
-				
 			case 10:
 				services.listarJuegosPorAnyoPar();
 				break;
-
+			case 12:
+				services.eliminarJuego();
+				break;
 			case 0:
 				continuar = salir();
 				break;

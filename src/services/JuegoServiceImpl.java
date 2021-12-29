@@ -65,6 +65,13 @@ public class JuegoServiceImpl implements IJuegoService {
 		logger.debug("Llamando al metodo dar de alta de la capa de datos");
 		daoJuego.darDeAlta(juego);
 	}
+	
+	@Override
+	public void eliminarJuego() {
+		logger.info("Inicio del metodo eliminar juego en la capa de servicios");
+		logger.debug("Llamando al metodo eliminar juego de la capa de datos");
+		daoJuego.eliminarJuego();
+	}
 
 
 	@Override

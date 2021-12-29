@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Predicate;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -53,6 +54,24 @@ public class DAOJuegoImpl implements IDAOJuego {
 		} catch (ExcepcionDuplicado e) {
 			System.out.println(e.getMensaje());
 		}
+	}
+	
+	@Override
+	public void eliminarJuego() {
+		String nombre = EntradaTeclado.leeStringConMensaje("introduce nombre:");
+		Plataforma plataforma = Plataforma.dimePlataforma(EntradaTeclado.leeStringConMensaje("introduce plataforma del juego: " + nombre));
+		
+		Predicate<Juego> condition = juego -> juego.getNombre().equals(nombre);
+		Predicate<Juego> condition2 = juego -> juego.getPlataforma().equals(plataforma);
+
+		listaJuegos.removeIf(condition.and(condition2));
+		logger.info("se ha eliminado el juego: " + nombre + " de " + plataforma);
+	}
+	
+	@Override
+	public void eliminarJuego(Juego juego) {
+		listaJuegos.remove(juego);
+		logger.info("se ha eliminado el juego: " + juego);
 	}
 
 	@Override
