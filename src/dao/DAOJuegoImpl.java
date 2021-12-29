@@ -4,12 +4,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import exceptions.ExcepcionGenero;
+import exceptions.ExcepcionDuplicado;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -23,7 +22,6 @@ import utils.PedirDatos;
 public class DAOJuegoImpl implements IDAOJuego {
 
 	private static Logger logger;
-
 	@Getter
 	@Setter
 	private List<Juego> listaJuegos = new ArrayList<>();
@@ -45,8 +43,17 @@ public class DAOJuegoImpl implements IDAOJuego {
 
 	@Override
 	public void darDeAlta(Juego juego) {
-		listaJuegos.add(juego);
-		System.out.println("se ha agregado el juego: " + juego);
+		try {
+			for (Juego game : listaJuegos) {
+				if (game.getNombre().equals(juego.getNombre()) && game.getPlataforma().equals(juego.getPlataforma())) {
+					throw new ExcepcionDuplicado();
+				}
+			}
+			listaJuegos.add(juego);
+			System.out.println("se ha agregado el juego: " + juego);
+		} catch (ExcepcionDuplicado e) {
+			System.out.println(e.getMensaje());
+		}
 	}
 
 	@Override
@@ -104,8 +111,9 @@ public class DAOJuegoImpl implements IDAOJuego {
 	}
 
 	@Override
-	public void listarJuegos() {
+	public int listarJuegos() {
 		logger.info("Inicio del metodo listar juegos en la capa de datos");
+		int contador = 0;
 		if (listaJuegos.isEmpty()) {
 			logger.warn("No hay ningun juego registrado");
 			System.out.println("No hay ningun juego registrado");
@@ -113,8 +121,10 @@ public class DAOJuegoImpl implements IDAOJuego {
 			logger.debug("Mostrando la lista de juegos");
 			for (Juego juego : listaJuegos) {
 				System.out.println(juego);
+				contador++;
 			}
 		}
+		return contador;
 	}
 
 	public void cargarJuegos() {
@@ -142,11 +152,8 @@ public class DAOJuegoImpl implements IDAOJuego {
 				}
 				cont++;
 			}
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
-
 }
