@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+/test/
+/dao/
+/services/
+=======
 /utils/
 /test/
 /dao/
@@ -6,3 +11,4 @@
 /services/
 /exceptions/
 /gui/
+>>>>>>> 88d7f6ed0a69a4ead9dbdc6e06f1dd42ab3478c8
