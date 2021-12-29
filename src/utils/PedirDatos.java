@@ -44,17 +44,6 @@ public class PedirDatos {
 		
 		
 		juego.setEditor(EntradaTeclado.leeStringConMensaje("introduce editor"));
-
-		Plataforma.InformePlataforma();
-		juego.setPlataforma(Plataforma.dimePlataforma(EntradaTeclado.leeStringConMensaje("introduce plataforma")));
-		
-		
-		
-		
-		
-		//juego.setGenero(Genero.dimeGenero(EntradaTeclado.leeIntConMensaje("introduce genero")));
-		
-		
 		
 		boolean generoIncorrecto = true;
 		Genero genero;
@@ -97,14 +86,6 @@ public class PedirDatos {
 			}
 		} while (platIncorrecta);
 		
-		
-		Genero.InformeGenero();
-		try {
-			juego.setGenero(Genero.dimeGenero(EntradaTeclado.leeIntConMensaje("introduce genero")));
-		} catch (ExcepcionGenero e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
 	}
 	
