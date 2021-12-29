@@ -1,7 +1,6 @@
 package control;
 
 import gui.Menu;
-//import utilidades.Datos;
 import utils.EntradaTeclado;
 import services.IJuegoService;
 import services.JuegoServiceImpl;
@@ -73,5 +72,4 @@ public class GestionJuegos {
 		String sino = EntradaTeclado.leeStringConMensaje("¿Estas seguro que quieres salir? S/N");
 		return (sino.toUpperCase().charAt(0) != 'S');
 	}
-
 }

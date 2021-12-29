@@ -1,18 +1,19 @@
 package exceptions;
 
-public class ExcepcionPlat extends Throwable{
-	
+@SuppressWarnings("serial")
+public class ExcepcionPlataforma extends Throwable {
+
 	private String mensaje = "Ese código no es de una plataforma existente";
-	
+
 	public String getMensaje() {
 		return mensaje;
 	}
-	
-	public ExcepcionPlat() {
+
+	public ExcepcionPlataforma() {
 		super();
 	}
-	
-	public ExcepcionPlat(String msg) {
+
+	public ExcepcionPlataforma(String msg) {
 		super(msg);
 	}
 }

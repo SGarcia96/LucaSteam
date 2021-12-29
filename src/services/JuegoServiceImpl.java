@@ -1,7 +1,5 @@
 package services;
 
-import java.util.Set;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -36,21 +34,21 @@ public class JuegoServiceImpl implements IJuegoService {
 	public void listarJuegosPorGenero() {
 		logger.info("Inicio del metodo listar juegos por genero en la capa de servicios");
 		logger.debug("Llamando al metodo listar juegos por genero de la capa de datos");
-		 daoJuego.listarJuegosPorGenero();
+		daoJuego.listarJuegosPorGenero();
 	}
 
 	@Override
 	public void listarJuegosPorGenero(Genero genero) {
 		logger.info("Inicio del metodo listar juegos por genero en la capa de servicios");
 		logger.debug("Llamando al metodo listar juegos por genero de la capa de datos");
-		 daoJuego.listarJuegosPorGenero(genero);
+		daoJuego.listarJuegosPorGenero(genero);
 	}
-	
+
 	@Override
 	public void listarJuegosNintendo() {
 		logger.info("Inicio del metodo listar juegos de Nintendo en la capa de servicios");
 		logger.debug("Llamando al metodo listar juegos nintendo de la capa de datos");
-		 daoJuego.listarJuegosNintendo();
+		daoJuego.listarJuegosNintendo();
 	}
 
 	@Override
@@ -66,14 +64,14 @@ public class JuegoServiceImpl implements IJuegoService {
 		logger.debug("Llamando al metodo dar de alta de la capa de datos");
 		daoJuego.darDeAlta(juego);
 	}
-	
+
 	@Override
 	public void eliminarJuego() {
 		logger.info("Inicio del metodo eliminar juego en la capa de servicios");
 		logger.debug("Llamando al metodo eliminar juego de la capa de datos");
 		daoJuego.eliminarJuego();
 	}
-	
+
 	@Override
 	public void editarJuego() {
 		logger.info("Inicio del metodo editar juego en la capa de servicios");
@@ -87,7 +85,7 @@ public class JuegoServiceImpl implements IJuegoService {
 		logger.debug("Llamando al metodo cargar juego de la capa de datos");
 		daoJuego.cargarJuegos();
 	}
-	
+
 	@Override
 	public void listarJuegosSigloXX() {
 		logger.info("Inicio del metodo listar juegos siglo XX en la capa de servicios");
@@ -108,27 +106,25 @@ public class JuegoServiceImpl implements IJuegoService {
 		logger.debug("Llamando al metodo listar editores de la capa de datos");
 		daoJuego.listarGeneros();
 	}
-	
+
 	@Override
 	public void listarJuegosPorAnyoPar() {
 		logger.info("Inicio del metodo listar juegos anyo par en la capa de servicios");
 		logger.debug("Llamando al metodo listar juegos anyo par en la capa de datos");
 		daoJuego.listarJuegosPorAnyoPar();
 	}
-	
+
 	@Override
 	public void listarJuegosPorPlataforma() {
 		logger.info("Inicio del metodo listar juegos por plataforma en la capa de servicios");
 		logger.debug("Llamando al metodo listar juegos por plataforma en la capa de datos");
 		daoJuego.listarJuegosPorPlataforma();
 	}
-	
+
 	@Override
 	public void listarJuegosPorPlataforma(Plataforma plataforma) {
 		logger.info("Inicio del metodo listar juegos por plataforma en la capa de servicios");
 		logger.debug("Llamando al metodo listar juegos por plataforma de la capa de datos");
-		 daoJuego.listarJuegosPorPlataforma(plataforma);
+		daoJuego.listarJuegosPorPlataforma(plataforma);
 	}
-	
-	
 }

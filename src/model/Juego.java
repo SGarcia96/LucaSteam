@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,9 +13,9 @@ public class Juego {
 	@Getter @Setter private String editor;
 	@Getter @Setter private Genero genero;
 	@Getter @Setter private Plataforma plataforma;
+	
 	@Override
 	public String toString() {
-		
 		StringBuilder builder = new StringBuilder();
 		builder.append(nombre);
 		builder.append("\n\t");
@@ -32,6 +31,4 @@ public class Juego {
 		
 		return builder.toString();
 	}
-	
-	
 }

@@ -16,7 +16,7 @@ import model.Juego;
 import model.Plataforma;
 
 public class listarJuegosNintendoTest {
-	
+
 	private static Logger logger;
 	private DAOJuegoImpl daoJuego;
 
@@ -44,7 +44,7 @@ public class listarJuegosNintendoTest {
 	public void listaSoloJuegosDeFabricanteNintendo() {
 		// Given
 		Juego juego = new Juego("Spirits & Spells", 2003, "Wanadoo", Genero.PLATFORM, Plataforma.GAMEBOY_ADVANCE);
-		Juego juego2 = new Juego("Teslagrad",2015, "Rain Games", Genero.PLATFORM, Plataforma.GAMECUBE);
+		Juego juego2 = new Juego("Teslagrad", 2015, "Rain Games", Genero.PLATFORM, Plataforma.GAMECUBE);
 		Juego juego3 = new Juego("End of Nations", 2012, "Trion Worlds", Genero.STRATEGY, Plataforma.PC);
 		Juego juego4 = new Juego("Mighty No. 9", 2016, "Deep Silver", Genero.PLATFORM, Plataforma.XBOX_ONE);
 		// When
@@ -54,12 +54,10 @@ public class listarJuegosNintendoTest {
 		daoJuego.darDeAlta(juego4);
 		List<Juego> juegos = daoJuego.listarJuegosNintendo("nintendo");
 		// Then
-		assertThat(juegos).
-					hasSize(2).
-					extracting(Juego::getNombre).
-					containsExactlyInAnyOrder("Spirits & Spells","Teslagrad");
+		assertThat(juegos).hasSize(2).extracting(Juego::getNombre).containsExactlyInAnyOrder("Spirits & Spells",
+				"Teslagrad");
 	}
-	
+
 	@Test
 	public void listaVacia() {
 		// When

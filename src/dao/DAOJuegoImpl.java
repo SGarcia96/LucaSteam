@@ -24,9 +24,7 @@ import utils.PedirDatos;
 public class DAOJuegoImpl implements IDAOJuego {
 
 	private static Logger logger;
-	@Getter
-	@Setter
-	private List<Juego> listaJuegos = new ArrayList<>();
+	@Getter @Setter private List<Juego> listaJuegos = new ArrayList<>();
 
 	static {
 		try {
@@ -62,14 +60,12 @@ public class DAOJuegoImpl implements IDAOJuego {
 	public void eliminarJuego() {
 		String nombre = EntradaTeclado.leeStringConMensaje("introduce nombre:");
 		Plataforma.InformePlataforma();
-		Plataforma plataforma = Plataforma
-				.dimePlataforma(EntradaTeclado.leeStringConMensaje("introduce plataforma del juego: " + nombre));
+		Plataforma plataforma = Plataforma.dimePlataforma(EntradaTeclado.leeStringConMensaje("introduce plataforma del juego: " + nombre));
 
 		Predicate<Juego> condition = juego -> juego.getNombre().equals(nombre);
 		Predicate<Juego> condition2 = juego -> juego.getPlataforma().equals(plataforma);
 
 		listaJuegos.removeIf(condition.and(condition2));
-		logger.info("se ha eliminado el juego: " + nombre + " de " + plataforma);
 	}
 
 	@Override
@@ -82,8 +78,7 @@ public class DAOJuegoImpl implements IDAOJuego {
 	public void editarJuego() {
 		String nombre = EntradaTeclado.leeStringConMensaje("introduce nombre:");
 		Plataforma.InformePlataforma();
-		Plataforma plataforma = Plataforma
-				.dimePlataforma(EntradaTeclado.leeStringConMensaje("introduce plataforma del juego: " + nombre));
+		Plataforma plataforma = Plataforma.dimePlataforma(EntradaTeclado.leeStringConMensaje("introduce plataforma del juego: " + nombre));
 		
 		Predicate<Juego> condition = juego -> juego.getNombre().equals(nombre);
 		Predicate<Juego> condition2 = juego -> juego.getPlataforma().equals(plataforma);
@@ -91,6 +86,37 @@ public class DAOJuegoImpl implements IDAOJuego {
 		listaJuegos.stream()
 					.filter(condition.and(condition2))
 					.findAny().ifPresent(juego -> PedirDatos.pideDatosJuego(juego));
+	}
+	
+	@Override
+	public void cargarJuegos() {
+		String linea;
+		String[] juegoArray = new String[5];
+		int cont = 0;
+		
+		try (FileReader fileReader = new FileReader("vgsales.csv");
+				BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+			while ((linea = bufferedReader.readLine()) != null) {
+				if (cont > 0) {
+					Juego juego = new Juego();
+					juegoArray = linea.split(",");
+					juego.setNombre(juegoArray[0]);
+					juego.setPlataforma(Plataforma.dimePlataforma(juegoArray[1]));
+					try {
+						juego.setFecha(Integer.parseInt(juegoArray[2]));
+					} catch (NumberFormatException e) {
+						System.out.println("No se ha insertado un numero");
+					}
+					juego.setGenero(Genero.dimeGenero(juegoArray[3]));
+					juego.setEditor(juegoArray[4]);
+					this.darDeAlta(juego);
+
+				}
+				cont++;
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -107,7 +133,6 @@ public class DAOJuegoImpl implements IDAOJuego {
 				System.out.println("\n Valor erroneo \n ");
 			}
 		}
-
 	}
 
 	@Override
@@ -139,6 +164,7 @@ public class DAOJuegoImpl implements IDAOJuego {
 	@Override
 	public List<Juego> listarJuegosNintendo(String fabricante) {
 		List<Juego> juegosFiltradosNintendo = new ArrayList<>();
+		
 		for (Juego juego : listaJuegos) {
 			if (fabricante.equalsIgnoreCase(juego.getPlataforma().getFabricante())) {
 				System.out.println(juego);
@@ -164,37 +190,7 @@ public class DAOJuegoImpl implements IDAOJuego {
 		}
 		return contador;
 	}
-
-	public void cargarJuegos() {
-		String linea;
-		String[] juegoArray = new String[5];
-		int cont = 0;
-		try (FileReader fileReader = new FileReader("vgsales.csv");
-				BufferedReader bufferedReader = new BufferedReader(fileReader)) {
-			while ((linea = bufferedReader.readLine()) != null) {
-				if (cont > 0) {
-					Juego juego = new Juego();
-					juegoArray = linea.split(",");
-
-					juego.setNombre(juegoArray[0]);
-					juego.setPlataforma(Plataforma.dimePlataforma(juegoArray[1]));
-					try {
-						juego.setFecha(Integer.parseInt(juegoArray[2]));
-					} catch (NumberFormatException e) {
-						System.out.println("No se ha insertado un numero");
-					}
-					juego.setGenero(Genero.dimeGenero(juegoArray[3]));
-					juego.setEditor(juegoArray[4]);
-					this.darDeAlta(juego);
-
-				}
-				cont++;
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
+	
 	@Override
 	public List<Juego> listarJuegosSigloXX() {
 		logger.info("Inicio del metodo listar juegos siglo XX");
@@ -217,6 +213,7 @@ public class DAOJuegoImpl implements IDAOJuego {
 	@Override
 	public Set<String> listarEditores() {
 		Set<String> editores = new HashSet<>();
+		
 		for (Juego juego : listaJuegos) {
 			if (!this.existeEditor(juego.getEditor(), editores)) {
 				editores.add(juego.getEditor());
@@ -229,6 +226,7 @@ public class DAOJuegoImpl implements IDAOJuego {
 	@Override
 	public Set<Genero> listarGeneros() {
 		Set<Genero> generos = new HashSet<>();
+		
 		for (Juego juego : listaJuegos) {
 			if (!this.existeGenero(juego.getGenero(), generos)) {
 				generos.add(juego.getGenero());
@@ -236,7 +234,6 @@ public class DAOJuegoImpl implements IDAOJuego {
 			}
 		}
 		return generos;
-
 	}
 
 	@Override
@@ -254,12 +251,12 @@ public class DAOJuegoImpl implements IDAOJuego {
 				System.out.println("\n Valor erroneo \n ");
 			}
 		}
-
 	}
 
 	@Override
 	public List<Juego> listarJuegosPorPlataforma(Plataforma plataforma) {
 		List<Juego> juegosFiltradosPorPlataforma = new ArrayList<>();
+		
 		for (Juego juego : listaJuegos) {
 			if (plataforma.equals(juego.getPlataforma())) {
 				System.out.println(juego);
@@ -286,7 +283,6 @@ public class DAOJuegoImpl implements IDAOJuego {
 			}
 		}
 		return listarJuegosPorAnyoPar;
-
 	}
 
 	public boolean existeGenero(Genero genero, Set<Genero> generos) {
@@ -294,7 +290,6 @@ public class DAOJuegoImpl implements IDAOJuego {
 			return true;
 		}
 		return false;
-
 	}
 
 	public boolean existeEditor(String editor, Set<String> editores) {
@@ -302,7 +297,5 @@ public class DAOJuegoImpl implements IDAOJuego {
 			return true;
 		}
 		return false;
-
 	}
-
 }

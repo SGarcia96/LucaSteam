@@ -2,9 +2,6 @@ package services;
 
 import model.Juego;
 import model.Plataforma;
-
-import java.util.Set;
-
 import model.Genero;
 
 public interface IJuegoService {
@@ -27,6 +24,7 @@ public interface IJuegoService {
 	public void editarJuego();
 
 	public void cargarJuegos();
+	
 	public void listarJuegosSigloXX();
 	public void listarJuegosPorAnyoPar();
 

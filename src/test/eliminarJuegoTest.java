@@ -55,7 +55,7 @@ public class eliminarJuegoTest {
 	public void tamanyoDeListaDecrementadaAlEliminarUnElemento() {
 		// Given
 		Juego juego = new Juego("Spirits & Spells", 2003, "Wanadoo", Genero.PLATFORM, Plataforma.GAMEBOY_ADVANCE);
-		Juego juego2 = new Juego("Teslagrad",2015, "Rain Games", Genero.PLATFORM, Plataforma.GAMECUBE);
+		Juego juego2 = new Juego("Teslagrad", 2015, "Rain Games", Genero.PLATFORM, Plataforma.GAMECUBE);
 		// When
 		daoJuego.darDeAlta(juego);
 		daoJuego.darDeAlta(juego2);
