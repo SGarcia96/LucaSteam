@@ -15,7 +15,7 @@ import model.Genero;
 import model.Juego;
 import model.Plataforma;
 
-public class listarEditoresTest {
+public class listarGenerosTest {
 
 	private static Logger logger;
 	private Juego juego;
@@ -23,7 +23,7 @@ public class listarEditoresTest {
 
 	static {
 		try {
-			logger = LogManager.getLogger(listarEditoresTest.class);
+			logger = LogManager.getLogger(listarGenerosTest.class);
 		} catch (Throwable e) {
 			System.out.println("Don't work");
 		}
@@ -42,20 +42,20 @@ public class listarEditoresTest {
 
 	/*** TEST ***/
 	@Test
-	public void listaCorrectamenteEditoresDistintos() {
+	public void listaCorrectamenteGenerosDistintos() {
 		// Given
-		juego = new Juego("Spirits & Spells", 2003, "Wanadoo", Genero.PLATFORM, Plataforma.GAMEBOY_ADVANCE);
+		juego = new Juego("Spirits & Spells", 2003, "Wanadoo", Genero.ADVENTURE, Plataforma.GAMEBOY_ADVANCE);
 		Juego juego2 = new Juego("Teslagrad",2015, "Rain Games", Genero.PLATFORM, Plataforma.PS_VITA);
 		Juego juego3 = new Juego("End of Nations", 2012, "Trion Worlds", Genero.STRATEGY, Plataforma.PC);
 		// When
 		daoJuego.darDeAlta(juego);
 		daoJuego.darDeAlta(juego2);
 		daoJuego.darDeAlta(juego3);
-		Set<String> editores = daoJuego.listarEditores();
+		Set<Genero> generos = daoJuego.listarGeneros();
 		// Then
-		assertThat(editores).
+		assertThat(generos).
 				hasSize(3).
-				containsExactlyInAnyOrder("Wanadoo", "Rain Games", "Trion Worlds");
+				containsExactlyInAnyOrder(Genero.ADVENTURE,Genero.PLATFORM,Genero.STRATEGY);
 	}
 	
 	@Test
@@ -63,25 +63,25 @@ public class listarEditoresTest {
 		// Given
 
 		// When
-		Set<String> editores = daoJuego.listarEditores();
+		Set<Genero> generos = daoJuego.listarGeneros();
 		// Then
-		assertThat(editores).isEmpty();
+		assertThat(generos).isEmpty();
 	}
 	
 	@Test
-	public void listaCorrectamenteEditoresIguales() {
+	public void listaCorrectamenteGenerosIguales() {
 		// Given
-		juego = new Juego("Usavichi: Game no Jikan", 2011, "Namco Bandai Games", Genero.ACTION, Plataforma.NINTENDO_DS);
-		Juego juego2 = new Juego("Battle Spirits: Hero's Soul", 2010, "Namco Bandai Games", Genero.ROLEPLAYING, Plataforma.PSP);
-		Juego juego3 = new Juego("Portable Island: Tenohira Resort", 2006, "Namco Bandai Games", Genero.SIMULATION, Plataforma.PSP);
+		juego = new Juego("Spirits & Spells", 2003, "Wanadoo", Genero.ADVENTURE, Plataforma.GAMEBOY_ADVANCE);
+		Juego juego2 = new Juego("Teslagrad",2015, "Rain Games", Genero.ADVENTURE, Plataforma.PS_VITA);
+		Juego juego3 = new Juego("End of Nations", 2012, "Trion Worlds", Genero.STRATEGY, Plataforma.PC);
 		// When
 		daoJuego.darDeAlta(juego);
 		daoJuego.darDeAlta(juego2);
 		daoJuego.darDeAlta(juego3);
-		Set<String> editores = daoJuego.listarEditores();
+		Set<Genero> generos = daoJuego.listarGeneros();
 		// Then
-		assertThat(editores).
-				hasSize(1).
-				containsExactly("Namco Bandai Games");
+		assertThat(generos).
+				hasSize(2).
+				containsExactlyInAnyOrder(Genero.ADVENTURE,Genero.STRATEGY);
 	}
 }

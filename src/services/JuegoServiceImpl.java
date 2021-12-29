@@ -88,4 +88,12 @@ public class JuegoServiceImpl implements IJuegoService {
 		daoJuego.listarEditores();
 	}
 
+	@Override
+	public void listarGeneros() {
+		logger.info("Inicio del metodo listar editores en la capa de servicios");
+		logger.debug("Llamando al metodo listar editores de la capa de datos");
+		daoJuego.listarGeneros();
+	}
+	
+	
 }
