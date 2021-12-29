@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import model.Genero;
 import model.Juego;
 
@@ -10,7 +12,7 @@ public interface IDAOJuego {
 	public void listarJuegos();
 
 	public void listarJuegosPorGenero();
-	public void listarJuegosPorGenero(Genero genero);
+	public List<Juego> listarJuegosPorGenero(Genero genero);
 
 	public void cargarJuegos();
 
