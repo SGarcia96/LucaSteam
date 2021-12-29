@@ -1,5 +1,6 @@
 package control;
 
+import exceptions.ExcepcionJuegosYaCargados;
 import gui.Menu;
 //import utilidades.Datos;
 import utils.EntradaTeclado;
@@ -9,6 +10,7 @@ import services.JuegoServiceImpl;
 public class GestionJuegos {
 
 	private IJuegoService services = new JuegoServiceImpl();
+	static private boolean cargado = false;
 
 	public void inicio() {
 		boolean seguir = true;
@@ -31,7 +33,16 @@ public class GestionJuegos {
 				services.listarJuegos();
 				break;
 			case 3:
-				services.cargarJuegos();
+				try {
+					if (cargado) {
+						throw new ExcepcionJuegosYaCargados();
+					}
+					services.cargarJuegos();
+					cargado = true;
+				} catch (Throwable t) {
+					System.out.println(((ExcepcionJuegosYaCargados) t).getMensaje());
+				}
+
 				break;
 			case 4:
 				services.listarJuegosPorGenero();
@@ -48,12 +59,10 @@ public class GestionJuegos {
 			case 8:
 				services.listarGeneros();
 				break;
-
-			
 			case 9:
 				services.listarJuegosPorPlataforma();
 				break;
-				
+
 			case 10:
 				services.listarJuegosPorAnyoPar();
 				break;
