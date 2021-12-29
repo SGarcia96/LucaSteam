@@ -69,19 +69,27 @@ public class DAOJuegoImpl implements IDAOJuego {
 				System.out.println("\n Valor erroneo \n ");
 			}
 		}
-	}
 
-	@Override
-	public List<Juego> listarJuegosPorGenero(Genero genero) {
-		List<Juego> juegosFiltradosPorGenero = new ArrayList<>();
-		for (Juego juego : listaJuegos) {
-			if (genero.equals(juego.getGenero())) {
-				System.out.println(juego);
-				juegosFiltradosPorGenero.add(juego);
+	}	
+	
+	@Override	
+		public List<Juego> listarJuegosPorGenero(Genero genero) {
+			List<Juego> juegosFiltradosPorGenero = new ArrayList<>();
+			for(Juego juego: listaJuegos) {
+				if(genero.equals(juego.getGenero())) {
+					System.out.println(juego);
+					juegosFiltradosPorGenero.add(juego);
+				}
 			}
+			return juegosFiltradosPorGenero;
 		}
-		return juegosFiltradosPorGenero;
-	}
+			
+	
+
+	
+
+
+
 
 	@Override
 	public void listarJuegosNintendo() {
@@ -155,6 +163,26 @@ public class DAOJuegoImpl implements IDAOJuego {
 			e.printStackTrace();
 		}
 	}
+
+
+
+	@Override
+	public void listarJuegosSigloXX() {
+		logger.info("Inicio del metodo listar juegos siglo XX"); 
+		if (listaJuegos.isEmpty()) {
+			logger.warn("No hay ningun juego registrado"); 
+			System.out.println("No hay ningun juego registrado");
+		} else {
+			logger.debug("Mostrando la lista de juegos del siglo XX");
+			for (Juego juego : listaJuegos){
+				if(1901<=juego.getFecha() &&juego.getFecha()<=2000){
+					System.out.println(juego);
+				}
+				
+			}
+		}
+	}
+
 	
 	@Override
 	public Set<String> listarEditores() {
@@ -173,6 +201,9 @@ public class DAOJuegoImpl implements IDAOJuego {
 			return true;
 		}
 		return false;
+
 	}
 
 }
+
+
