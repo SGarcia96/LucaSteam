@@ -18,6 +18,7 @@ public interface IDAOJuego {
 	public void eliminarJuego(Juego juego);
 	
 	public void editarJuego();
+	
 
 	public void listarJuegosPorGenero();
 	public List<Juego> listarJuegosPorGenero(Genero genero);
