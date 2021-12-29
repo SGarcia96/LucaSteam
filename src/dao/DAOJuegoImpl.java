@@ -73,7 +73,7 @@ public class DAOJuegoImpl implements IDAOJuego {
 	}	
 	
 	@Override	
-		public List<Juego> listarJuegosPorGenero(Genero genero) {
+	public List<Juego> listarJuegosPorGenero(Genero genero) {
 			List<Juego> juegosFiltradosPorGenero = new ArrayList<>();
 			for(Juego juego: listaJuegos) {
 				if(genero.equals(juego.getGenero())) {
@@ -83,13 +83,6 @@ public class DAOJuegoImpl implements IDAOJuego {
 			}
 			return juegosFiltradosPorGenero;
 		}
-			
-	
-
-	
-
-
-
 
 	@Override
 	public void listarJuegosNintendo() {
@@ -163,26 +156,25 @@ public class DAOJuegoImpl implements IDAOJuego {
 			e.printStackTrace();
 		}
 	}
-
-
-
+	
 	@Override
-	public void listarJuegosSigloXX() {
-		logger.info("Inicio del metodo listar juegos siglo XX"); 
+	public List<Juego> listarJuegosSigloXX() {
+		logger.info("Inicio del metodo listar juegos siglo XX");
+		List<Juego> juegosSigloXX = new ArrayList<>();
+		
 		if (listaJuegos.isEmpty()) {
 			logger.warn("No hay ningun juego registrado"); 
 			System.out.println("No hay ningun juego registrado");
 		} else {
-			logger.debug("Mostrando la lista de juegos del siglo XX");
-			for (Juego juego : listaJuegos){
-				if(1901<=juego.getFecha() &&juego.getFecha()<=2000){
+			for (Juego juego : listaJuegos) {
+				if (1901 <= juego.getFecha() && juego.getFecha() <= 2000) {
 					System.out.println(juego);
+					juegosSigloXX.add(juego);
 				}
-				
 			}
 		}
+		return juegosSigloXX;
 	}
-
 	
 	@Override
 	public Set<String> listarEditores() {

@@ -15,7 +15,7 @@ import model.Genero;
 import model.Juego;
 import model.Plataforma;
 
-public class listarJuegosNintendoTest {
+public class listarJuegosSigloXXTest {
 	
 	private static Logger logger;
 	private DAOJuegoImpl daoJuego;
@@ -41,7 +41,7 @@ public class listarJuegosNintendoTest {
 
 	/*** TEST ***/
 	@Test
-	public void listaSoloJuegosDeFabricanteNintendo() {
+	public void listaSoloJuegosDeSigloXX() {
 		// Given
 		Juego juego = new Juego("Spirits & Spells", 2003, "Wanadoo", Genero.PLATFORM, Plataforma.GAMEBOY_ADVANCE);
 		Juego juego2 = new Juego("Teslagrad",2015, "Rain Games", Genero.PLATFORM, Plataforma.GAMECUBE);
@@ -63,8 +63,9 @@ public class listarJuegosNintendoTest {
 	@Test
 	public void listaVacia() {
 		// When
-		List<Juego> juegos = daoJuego.listarJuegosNintendo("nintendo");
+		List<Juego> juegos = daoJuego.listarJuegosSigloXX();
 		// Then
 		assertThat(juegos).hasSize(0);
 	}
+	
 }
