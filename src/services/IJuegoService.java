@@ -9,17 +9,16 @@ import model.Genero;
 public interface IJuegoService {
 
 	public void listarJuegos();
-
-	// new
+	
 	public void listarJuegosPorGenero();
-
 	public void listarJuegosPorGenero(Genero genero);
 	
 	public void listarJuegosNintendo();
 
 	public void darDeAlta();
-
 	public void darDeAlta(Juego juego);
+	
+	public void eliminarJuego();
 
 	public void cargarJuegos();
 	public void listarJuegosSigloXX();
