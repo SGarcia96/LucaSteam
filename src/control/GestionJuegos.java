@@ -37,7 +37,11 @@ public class GestionJuegos {
 
 			case 4:
 				services.listarJuegosPorGenero();;
-				break;	
+				break;
+			
+			case 7:
+				services.listarJuegosSigloXX();
+				break;
 
 			case 0:
 				continuar = salir();

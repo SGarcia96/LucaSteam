@@ -17,6 +17,7 @@ public interface IJuegoService {
 	public void darDeAlta(Juego juego);
 
 	public void cargarJuegos();
+	public void listarJuegosSigloXX();
 
 	
 }

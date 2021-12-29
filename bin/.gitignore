@@ -1,1 +1,18 @@
+<<<<<<< HEAD
 /exceptions/
+=======
+<<<<<<< HEAD
+/test/
+/dao/
+/services/
+=======
+/utils/
+/test/
+/dao/
+/model/
+/control/
+/services/
+/exceptions/
+/gui/
+>>>>>>> 88d7f6ed0a69a4ead9dbdc6e06f1dd42ab3478c8
+>>>>>>> 41639743874a7048594877ff21bc7177a1928c45
