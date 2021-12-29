@@ -41,7 +41,7 @@ public class listarJuegosSigloXXTest {
 
 	/*** TEST ***/
 	@Test
-	public void listaSoloJuegosDeFabricanteNintendo() {
+	public void listaSoloJuegosDeSigloXX() {
 		// Given
 		Juego juego = new Juego("Spirits & Spells", 2003, "Wanadoo", Genero.PLATFORM, Plataforma.GAMEBOY_ADVANCE);
 		Juego juego2 = new Juego("Teslagrad",2015, "Rain Games", Genero.PLATFORM, Plataforma.GAMECUBE);
@@ -63,9 +63,9 @@ public class listarJuegosSigloXXTest {
 	@Test
 	public void listaVacia() {
 		// When
-		//List<Juego> juegos = daoJuego.listarJuegosSigloXX();
+		List<Juego> juegos = daoJuego.listarJuegosSigloXX();
 		// Then
-		//assertThat(juegos).hasSize(0);
+		assertThat(juegos).hasSize(0);
 	}
 	
 }
