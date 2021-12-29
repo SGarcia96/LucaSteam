@@ -17,6 +17,7 @@ public class Menu {
 
 		System.out.println("6) Listar editores");
 		System.out.println("8) Listar generos");
+		System.out.println("10) Listar juegos anyo par");
 		System.out.println("0) Salir");
 	}
 }

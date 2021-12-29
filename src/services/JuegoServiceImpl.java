@@ -95,5 +95,12 @@ public class JuegoServiceImpl implements IJuegoService {
 		daoJuego.listarGeneros();
 	}
 	
+	@Override
+	public void listarJuegosPorAnyoPar() {
+		logger.info("Inicio del metodo listar juegos anyo par en la capa de servicios");
+		logger.debug("Llamando al metodo listar juegos anyo par en la capa de datos");
+		daoJuego.listarJuegosPorAnyoPar();
+	}
+	
 	
 }

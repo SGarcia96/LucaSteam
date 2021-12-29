@@ -200,6 +200,26 @@ public class DAOJuegoImpl implements IDAOJuego {
 		return generos;
 	}
 	
+	@Override
+	public List<Juego> listarJuegosPorAnyoPar() {
+		logger.info("Inicio del metodo listar juegos anyos pares");
+		List<Juego> listarJuegosPorAnyoPar = new ArrayList<>();
+		
+		if (listaJuegos.isEmpty()) {
+			logger.warn("No hay ningun juego registrado"); 
+			System.out.println("No hay ningun juego registrado");
+		} else {
+			for (Juego juego : listaJuegos) {
+				if (juego.getFecha()%2==0) {
+					System.out.println(juego);
+					listarJuegosPorAnyoPar.add(juego);
+				}
+			}
+		}
+		return listarJuegosPorAnyoPar;
+		
+	}
+	
 	public boolean existeGenero(Genero genero, Set<Genero> generos) {
 		if(generos.contains(genero)) {
 			return true;
@@ -214,6 +234,8 @@ public class DAOJuegoImpl implements IDAOJuego {
 		}
 		return false;
 
+		
+	
 	}
 
 }
