@@ -166,7 +166,7 @@ public class DAOJuegoImpl implements IDAOJuego {
 		List<Juego> juegosFiltradosNintendo = new ArrayList<>();
 		
 		for (Juego juego : listaJuegos) {
-			if (fabricante.equalsIgnoreCase(juego.getPlataforma().getFabricante())) {
+			if (juego.getPlataforma() != null && fabricante.equalsIgnoreCase(juego.getPlataforma().getFabricante())) {
 				System.out.println(juego);
 				juegosFiltradosNintendo.add(juego);
 			}
