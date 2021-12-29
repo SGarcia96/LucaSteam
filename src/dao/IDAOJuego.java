@@ -22,6 +22,7 @@ public interface IDAOJuego {
 	public void cargarJuegos();
 
 	public List<Juego> listarJuegosSigloXX();
+	public List<Juego> listarJuegosPorAnyoPar();
 
 	
 	public Set<String> listarEditores();

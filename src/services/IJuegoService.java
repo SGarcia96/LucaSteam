@@ -23,6 +23,7 @@ public interface IJuegoService {
 
 	public void cargarJuegos();
 	public void listarJuegosSigloXX();
+	public void listarJuegosPorAnyoPar();
 
 	public void listarEditores();
 	public void listarGeneros();
