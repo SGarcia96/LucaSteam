@@ -217,7 +217,40 @@ public class DAOJuegoImpl implements IDAOJuego {
 			}
 		}
 		return generos;
+	
+	
 	}
+	
+	@Override
+	public void listarJuegosPorPlataforma() {
+		logger.info("Inicio del metodo listar juegos por plataforma en la capa de datos");
+		if (listaJuegos.isEmpty()) {
+			logger.warn("No hay ningun juego registrado");
+			System.out.println("No hay ningun juego registrado");
+		} else {
+			Plataforma.InformePlataforma();
+			try {
+				listarJuegosPorPlataforma(Plataforma.dimePlataforma(EntradaTeclado.leeStringConMensaje("Introduzca plataforma")));
+			} catch (Throwable e) {
+				System.out.println("\n Valor erroneo \n ");
+			}
+		}
+		
+	
+
+	}
+	
+	@Override	
+	public List<Juego> listarJuegosPorPlataforma(Plataforma plataforma) {
+			List<Juego> juegosFiltradosPorPlataforma = new ArrayList<>();
+			for(Juego juego: listaJuegos) {
+				if(plataforma.equals(juego.getPlataforma())) {
+					System.out.println(juego);
+					juegosFiltradosPorPlataforma.add(juego);
+				}
+			}
+			return juegosFiltradosPorPlataforma;
+		}
 	
 	@Override
 	public List<Juego> listarJuegosPorAnyoPar() {
@@ -236,6 +269,8 @@ public class DAOJuegoImpl implements IDAOJuego {
 			}
 		}
 		return listarJuegosPorAnyoPar;
+		
+		
 		
 	}
 	
