@@ -1,5 +1,7 @@
 package services;
 
+import java.util.Set;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -77,6 +79,13 @@ public class JuegoServiceImpl implements IJuegoService {
 		logger.info("Inicio del metodo listar juegos siglo XX en la capa de servicios");
 		logger.debug("Llamando al metodo listar juegos siglo XX de la capa de datos");
 		daoJuego.listarJuegosSigloXX();
+	}
+
+	@Override
+	public void listarEditores() {
+		logger.info("Inicio del metodo listar editores en la capa de servicios");
+		logger.debug("Llamando al metodo listar editores de la capa de datos");
+		daoJuego.listarEditores();
 	}
 
 }

@@ -4,15 +4,16 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import exceptions.ExcepcionDuplicado;
-
 import lombok.Getter;
 import lombok.Setter;
-
 import model.Genero;
 import model.Juego;
 import model.Plataforma;
@@ -22,9 +23,7 @@ import utils.PedirDatos;
 public class DAOJuegoImpl implements IDAOJuego {
 
 	private static Logger logger;
-	@Getter
-	@Setter
-	private List<Juego> listaJuegos = new ArrayList<>();
+	@Getter @Setter private List<Juego> listaJuegos = new ArrayList<>();
 
 	static {
 		try {
@@ -166,6 +165,7 @@ public class DAOJuegoImpl implements IDAOJuego {
 	}
 
 
+
 	@Override
 	public void listarJuegosSigloXX() {
 		logger.info("Inicio del metodo listar juegos siglo XX"); 
@@ -181,6 +181,27 @@ public class DAOJuegoImpl implements IDAOJuego {
 				
 			}
 		}
+	}
+
+	
+	@Override
+	public Set<String> listarEditores() {
+		Set<String> editores = new HashSet<>();
+		for(Juego juego: listaJuegos) {
+			if(!this.existeEditor(juego.getEditor(), editores)) {
+				editores.add(juego.getEditor());
+				System.out.println("Editor: " + juego.getEditor());
+			}
+		}
+		return editores;
+	}
+	
+	public boolean existeEditor(String editor, Set<String> editores) {
+		if(editores.contains(editor)) {
+			return true;
+		}
+		return false;
+
 	}
 
 }

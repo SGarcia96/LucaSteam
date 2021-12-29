@@ -38,13 +38,21 @@ public class GestionJuegos {
 				services.listarJuegosPorGenero();
 				break;
 
+
 			case 7:
 				services.listarJuegosSigloXX();
 				break;
 
+
 			case 5:
 				services.listarJuegosNintendo();
 				break;
+
+
+			case 6:
+				services.listarEditores();
+				break;
+
 
 			case 0:
 				continuar = salir();
