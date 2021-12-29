@@ -82,8 +82,9 @@ public class DAOJuegoImpl implements IDAOJuego {
 	
 
 	@Override
-	public void listarJuegos() {
+	public int listarJuegos() {
 		logger.info("Inicio del metodo listar juegos en la capa de datos");
+		int contador = 0;
 		if (listaJuegos.isEmpty()) {
 			logger.warn("No hay ningun juego registrado");
 			System.out.println("No hay ningun juego registrado");
@@ -91,8 +92,10 @@ public class DAOJuegoImpl implements IDAOJuego {
 			logger.debug("Mostrando la lista de juegos");
 			for (Juego juego : listaJuegos) {
 				System.out.println(juego);
+				contador++;
 			}
 		}
+		return contador;
 	}
 	
 	public void cargarJuegos() {

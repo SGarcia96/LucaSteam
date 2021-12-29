@@ -9,7 +9,7 @@ public interface IDAOJuego {
 	
 	public void darDeAlta();
 	public void darDeAlta(Juego juego);
-	public void listarJuegos();
+	public int listarJuegos();
 
 	public void listarJuegosPorGenero();
 	public List<Juego> listarJuegosPorGenero(Genero genero);
