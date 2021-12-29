@@ -83,7 +83,7 @@ public class listarEditoresTest {
 		Set<String> editores = daoJuego.listarEditores();
 		// Then
 		assertThat(editores).
-				hasSize(3).
-				containsExactlyInAnyOrder("Wanadoo", "Rain Games", "Trion Worlds");
+				hasSize(1).
+				containsExactly("Namco Bandai Games");
 	}
 }

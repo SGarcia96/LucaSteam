@@ -16,7 +16,6 @@ public enum Genero {
 	STRATEGY(12);
 	
 	private final int codigo;
-	
 	private static Genero[] generos = Genero.values();
 	
 	private Genero(int codigo) {

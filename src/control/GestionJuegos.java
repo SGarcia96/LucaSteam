@@ -34,11 +34,14 @@ public class GestionJuegos {
 			case 3:
 				services.cargarJuegos();
 				break;
-
 			case 4:
-				services.listarJuegosPorGenero();;
-				break;	
-				
+				services.listarJuegosPorGenero();
+				break;
+
+			case 5:
+				services.listarJuegosNintendo();
+				break;
+
 			case 6:
 				services.listarEditores();
 				break;
