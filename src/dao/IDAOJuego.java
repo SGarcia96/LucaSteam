@@ -1,9 +1,11 @@
 package dao;
 
 import java.util.List;
+import java.util.Set;
 
 import model.Genero;
 import model.Juego;
+import model.Plataforma;
 
 public interface IDAOJuego {
 	
@@ -13,7 +15,12 @@ public interface IDAOJuego {
 
 	public void listarJuegosPorGenero();
 	public List<Juego> listarJuegosPorGenero(Genero genero);
-
+	
+	public void listarJuegosNintendo();
+	public List<Juego> listarJuegosNintendo(String fabricante);
+	
 	public void cargarJuegos();
+	
+	public Set<String> listarEditores();
 
 }

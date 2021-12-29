@@ -20,7 +20,6 @@ public class PedirDatos {
 		
 		juego.setNombre(EntradaTeclado.leeStringConMensaje("introduce nombre"));
 		
-		
 		boolean anyoIncorrecto = true;
 		int anyo = 0;
 		do {

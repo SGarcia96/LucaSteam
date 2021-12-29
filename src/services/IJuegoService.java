@@ -1,6 +1,9 @@
 package services;
 
 import model.Juego;
+
+import java.util.Set;
+
 import model.Genero;
 
 public interface IJuegoService {
@@ -11,6 +14,8 @@ public interface IJuegoService {
 	public void listarJuegosPorGenero();
 
 	public void listarJuegosPorGenero(Genero genero);
+	
+	public void listarJuegosNintendo();
 
 	public void darDeAlta();
 
@@ -18,5 +23,6 @@ public interface IJuegoService {
 
 	public void cargarJuegos();
 
+	public void listarEditores();
 	
 }

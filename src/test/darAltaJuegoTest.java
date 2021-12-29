@@ -8,7 +8,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import dao.DAOJuegoImpl;
@@ -34,7 +33,7 @@ public class darAltaJuegoTest {
 		logger.info(">>>>> Inicio test");
 		juego = new Juego();
 		daoJuego = new DAOJuegoImpl();
-		// List listjuegos...
+
 	}
 
 	@AfterEach
@@ -53,7 +52,7 @@ public class darAltaJuegoTest {
 		// Then
 		assertThat(juegos).anyMatch(e -> e.getNombre().equals("mario"));
 	}
-	
+
 	@Test
 	public void listaJuegosTieneTamanyoEsperado() {
 		// Given
@@ -64,7 +63,7 @@ public class darAltaJuegoTest {
 		// Then
 		assertThat(juegos).hasSize(juegos.size());
 	}
-	
+
 	@Test
 	public void juegoNotDuplicated() {
 		// duplicated if nombre, plataforma is equal
@@ -80,17 +79,5 @@ public class darAltaJuegoTest {
 		ArrayList<Juego> juegos = (ArrayList<Juego>) daoJuego.getListaJuegos();
 		// Then
 		assertThat(juegos).hasSize(1);
-	}
-	
-
-	@Test
-	@Disabled
-	public void fechaDebeSerMenorA1951() {
-		// Given
-		
-		// When
-		
-		// Then
-		
 	}
 }
