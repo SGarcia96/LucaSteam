@@ -24,7 +24,9 @@ import utils.PedirDatos;
 public class DAOJuegoImpl implements IDAOJuego {
 
 	private static Logger logger;
-	@Getter @Setter private List<Juego> listaJuegos = new ArrayList<>();
+	@Getter
+	@Setter
+	private List<Juego> listaJuegos = new ArrayList<>();
 
 	static {
 		try {
@@ -55,23 +57,40 @@ public class DAOJuegoImpl implements IDAOJuego {
 			System.out.println(e.getMensaje());
 		}
 	}
-	
+
 	@Override
 	public void eliminarJuego() {
 		String nombre = EntradaTeclado.leeStringConMensaje("introduce nombre:");
-		Plataforma plataforma = Plataforma.dimePlataforma(EntradaTeclado.leeStringConMensaje("introduce plataforma del juego: " + nombre));
-		
+		Plataforma.InformePlataforma();
+		Plataforma plataforma = Plataforma
+				.dimePlataforma(EntradaTeclado.leeStringConMensaje("introduce plataforma del juego: " + nombre));
+
 		Predicate<Juego> condition = juego -> juego.getNombre().equals(nombre);
 		Predicate<Juego> condition2 = juego -> juego.getPlataforma().equals(plataforma);
 
 		listaJuegos.removeIf(condition.and(condition2));
 		logger.info("se ha eliminado el juego: " + nombre + " de " + plataforma);
 	}
-	
+
 	@Override
 	public void eliminarJuego(Juego juego) {
 		listaJuegos.remove(juego);
 		logger.info("se ha eliminado el juego: " + juego);
+	}
+
+	@Override
+	public void editarJuego() {
+		String nombre = EntradaTeclado.leeStringConMensaje("introduce nombre:");
+		Plataforma.InformePlataforma();
+		Plataforma plataforma = Plataforma
+				.dimePlataforma(EntradaTeclado.leeStringConMensaje("introduce plataforma del juego: " + nombre));
+		
+		Predicate<Juego> condition = juego -> juego.getNombre().equals(nombre);
+		Predicate<Juego> condition2 = juego -> juego.getPlataforma().equals(plataforma);
+
+		listaJuegos.stream()
+					.filter(condition.and(condition2))
+					.findAny().ifPresent(juego -> PedirDatos.pideDatosJuego(juego));
 	}
 
 	@Override
@@ -89,19 +108,19 @@ public class DAOJuegoImpl implements IDAOJuego {
 			}
 		}
 
-	}	
-	
-	@Override	
+	}
+
+	@Override
 	public List<Juego> listarJuegosPorGenero(Genero genero) {
-			List<Juego> juegosFiltradosPorGenero = new ArrayList<>();
-			for(Juego juego: listaJuegos) {
-				if(genero.equals(juego.getGenero())) {
-					System.out.println(juego);
-					juegosFiltradosPorGenero.add(juego);
-				}
+		List<Juego> juegosFiltradosPorGenero = new ArrayList<>();
+		for (Juego juego : listaJuegos) {
+			if (genero.equals(juego.getGenero())) {
+				System.out.println(juego);
+				juegosFiltradosPorGenero.add(juego);
 			}
-			return juegosFiltradosPorGenero;
 		}
+		return juegosFiltradosPorGenero;
+	}
 
 	@Override
 	public void listarJuegosNintendo() {
@@ -175,14 +194,14 @@ public class DAOJuegoImpl implements IDAOJuego {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
 	public List<Juego> listarJuegosSigloXX() {
 		logger.info("Inicio del metodo listar juegos siglo XX");
 		List<Juego> juegosSigloXX = new ArrayList<>();
-		
+
 		if (listaJuegos.isEmpty()) {
-			logger.warn("No hay ningun juego registrado"); 
+			logger.warn("No hay ningun juego registrado");
 			System.out.println("No hay ningun juego registrado");
 		} else {
 			for (Juego juego : listaJuegos) {
@@ -194,33 +213,32 @@ public class DAOJuegoImpl implements IDAOJuego {
 		}
 		return juegosSigloXX;
 	}
-	
+
 	@Override
 	public Set<String> listarEditores() {
 		Set<String> editores = new HashSet<>();
-		for(Juego juego: listaJuegos) {
-			if(!this.existeEditor(juego.getEditor(), editores)) {
+		for (Juego juego : listaJuegos) {
+			if (!this.existeEditor(juego.getEditor(), editores)) {
 				editores.add(juego.getEditor());
 				System.out.println("Editor: " + juego.getEditor());
 			}
 		}
 		return editores;
 	}
-	
+
 	@Override
 	public Set<Genero> listarGeneros() {
 		Set<Genero> generos = new HashSet<>();
-		for(Juego juego: listaJuegos) {
-			if(!this.existeGenero(juego.getGenero(), generos)) {
+		for (Juego juego : listaJuegos) {
+			if (!this.existeGenero(juego.getGenero(), generos)) {
 				generos.add(juego.getGenero());
 				System.out.println("Genero: " + juego.getGenero());
 			}
 		}
 		return generos;
-	
-	
+
 	}
-	
+
 	@Override
 	public void listarJuegosPorPlataforma() {
 		logger.info("Inicio del metodo listar juegos por plataforma en la capa de datos");
@@ -230,68 +248,61 @@ public class DAOJuegoImpl implements IDAOJuego {
 		} else {
 			Plataforma.InformePlataforma();
 			try {
-				listarJuegosPorPlataforma(Plataforma.dimePlataforma(EntradaTeclado.leeStringConMensaje("Introduzca plataforma")));
+				listarJuegosPorPlataforma(
+						Plataforma.dimePlataforma(EntradaTeclado.leeStringConMensaje("Introduzca plataforma")));
 			} catch (Throwable e) {
 				System.out.println("\n Valor erroneo \n ");
 			}
 		}
-		
-	
 
 	}
-	
-	@Override	
+
+	@Override
 	public List<Juego> listarJuegosPorPlataforma(Plataforma plataforma) {
-			List<Juego> juegosFiltradosPorPlataforma = new ArrayList<>();
-			for(Juego juego: listaJuegos) {
-				if(plataforma.equals(juego.getPlataforma())) {
-					System.out.println(juego);
-					juegosFiltradosPorPlataforma.add(juego);
-				}
+		List<Juego> juegosFiltradosPorPlataforma = new ArrayList<>();
+		for (Juego juego : listaJuegos) {
+			if (plataforma.equals(juego.getPlataforma())) {
+				System.out.println(juego);
+				juegosFiltradosPorPlataforma.add(juego);
 			}
-			return juegosFiltradosPorPlataforma;
 		}
-	
+		return juegosFiltradosPorPlataforma;
+	}
+
 	@Override
 	public List<Juego> listarJuegosPorAnyoPar() {
 		logger.info("Inicio del metodo listar juegos anyos pares");
 		List<Juego> listarJuegosPorAnyoPar = new ArrayList<>();
-		
+
 		if (listaJuegos.isEmpty()) {
-			logger.warn("No hay ningun juego registrado"); 
+			logger.warn("No hay ningun juego registrado");
 			System.out.println("No hay ningun juego registrado");
 		} else {
 			for (Juego juego : listaJuegos) {
-				if (juego.getFecha()%2==0) {
+				if (juego.getFecha() % 2 == 0) {
 					System.out.println(juego);
 					listarJuegosPorAnyoPar.add(juego);
 				}
 			}
 		}
 		return listarJuegosPorAnyoPar;
-		
-		
-		
+
 	}
-	
+
 	public boolean existeGenero(Genero genero, Set<Genero> generos) {
-		if(generos.contains(genero)) {
+		if (generos.contains(genero)) {
 			return true;
 		}
 		return false;
 
 	}
-	
+
 	public boolean existeEditor(String editor, Set<String> editores) {
-		if(editores.contains(editor)) {
+		if (editores.contains(editor)) {
 			return true;
 		}
 		return false;
 
-		
-	
 	}
 
 }
-
-

@@ -73,7 +73,13 @@ public class JuegoServiceImpl implements IJuegoService {
 		logger.debug("Llamando al metodo eliminar juego de la capa de datos");
 		daoJuego.eliminarJuego();
 	}
-
+	
+	@Override
+	public void editarJuego() {
+		logger.info("Inicio del metodo editar juego en la capa de servicios");
+		logger.debug("Llamando al metodo editar juego de la capa de datos");
+		daoJuego.editarJuego();
+	}
 
 	@Override
 	public void cargarJuegos() {

@@ -15,7 +15,6 @@ public interface IJuegoService {
 	public void listarJuegosPorGenero(Genero genero);
 	
 	public void listarJuegosPorPlataforma();
-
 	public void listarJuegosPorPlataforma(Plataforma plataforma);
 	
 	public void listarJuegosNintendo();
@@ -24,6 +23,8 @@ public interface IJuegoService {
 	public void darDeAlta(Juego juego);
 	
 	public void eliminarJuego();
+	
+	public void editarJuego();
 
 	public void cargarJuegos();
 	public void listarJuegosSigloXX();
