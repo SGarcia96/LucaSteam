@@ -25,6 +25,7 @@ public interface IDAOJuego {
 
 	
 	public Set<String> listarEditores();
+	public Set<Genero> listarGeneros();
 
 
 }

@@ -25,5 +25,6 @@ public interface IJuegoService {
 	public void listarJuegosSigloXX();
 
 	public void listarEditores();
+	public void listarGeneros();
 	
 }

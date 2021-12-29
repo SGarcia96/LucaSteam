@@ -16,7 +16,7 @@ public class Menu {
 		System.out.println("5) Listar juegos de Nintendo");
 
 		System.out.println("6) Listar editores");
-
+		System.out.println("8) Listar generos");
 		System.out.println("0) Salir");
 	}
 }

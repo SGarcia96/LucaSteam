@@ -196,6 +196,26 @@ public class DAOJuegoImpl implements IDAOJuego {
 		return editores;
 	}
 	
+	@Override
+	public Set<Genero> listarGeneros() {
+		Set<Genero> generos = new HashSet<>();
+		for(Juego juego: listaJuegos) {
+			if(!this.existeGenero(juego.getGenero(), generos)) {
+				generos.add(juego.getGenero());
+				System.out.println("Genero: " + juego.getGenero());
+			}
+		}
+		return generos;
+	}
+	
+	public boolean existeGenero(Genero genero, Set<Genero> generos) {
+		if(generos.contains(genero)) {
+			return true;
+		}
+		return false;
+
+	}
+	
 	public boolean existeEditor(String editor, Set<String> editores) {
 		if(editores.contains(editor)) {
 			return true;
