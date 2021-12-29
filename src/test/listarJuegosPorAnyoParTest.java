@@ -16,7 +16,7 @@ import model.Juego;
 import model.Plataforma;
 
 public class listarJuegosPorAnyoParTest {
-	
+
 	private static Logger logger;
 	private DAOJuegoImpl daoJuego;
 
@@ -44,7 +44,7 @@ public class listarJuegosPorAnyoParTest {
 	public void listarJuegosPorAnyoPar() {
 		// Given
 		Juego juego = new Juego("Spirits & Spells", 2003, "Wanadoo", Genero.PLATFORM, Plataforma.GAMEBOY_ADVANCE);
-		Juego juego2 = new Juego("Teslagrad",2015, "Rain Games", Genero.PLATFORM, Plataforma.GAMECUBE);
+		Juego juego2 = new Juego("Teslagrad", 2015, "Rain Games", Genero.PLATFORM, Plataforma.GAMECUBE);
 		Juego juego3 = new Juego("End of Nations", 2012, "Trion Worlds", Genero.STRATEGY, Plataforma.PC);
 		Juego juego4 = new Juego("Mighty No. 9", 2016, "Deep Silver", Genero.PLATFORM, Plataforma.XBOX_ONE);
 		Juego juego5 = new Juego("Super Mario Bros. 3", 1998, "Nintendo", Genero.PLATFORM, Plataforma.NES);
@@ -56,12 +56,10 @@ public class listarJuegosPorAnyoParTest {
 		daoJuego.darDeAlta(juego5);
 		List<Juego> juegos = daoJuego.listarJuegosPorAnyoPar();
 		// Then
-		assertThat(juegos).
-					hasSize(3).
-					extracting(Juego::getNombre).
-					containsExactlyInAnyOrder("Super Mario Bros. 3", "Mighty No. 9","End of Nations");
+		assertThat(juegos).hasSize(3).extracting(Juego::getNombre).containsExactlyInAnyOrder("Super Mario Bros. 3",
+				"Mighty No. 9", "End of Nations");
 	}
-	
+
 	@Test
 	public void listaVacia() {
 		// When
@@ -69,5 +67,5 @@ public class listarJuegosPorAnyoParTest {
 		// Then
 		assertThat(juegos).hasSize(0);
 	}
-	
+
 }

@@ -2,7 +2,6 @@ package control;
 
 import exceptions.ExcepcionJuegosYaCargados;
 import gui.Menu;
-//import utilidades.Datos;
 import utils.EntradaTeclado;
 import services.IJuegoService;
 import services.JuegoServiceImpl;
@@ -21,7 +20,6 @@ public class GestionJuegos {
 	}
 
 	public boolean seleccionOpciones() {
-
 		boolean continuar = true;
 
 		try {
@@ -42,13 +40,9 @@ public class GestionJuegos {
 				} catch (Throwable t) {
 					System.out.println(((ExcepcionJuegosYaCargados) t).getMensaje());
 				}
-
 				break;
 			case 4:
 				services.listarJuegosPorGenero();
-				break;
-			case 7:
-				services.listarJuegosSigloXX();
 				break;
 			case 5:
 				services.listarJuegosNintendo();
@@ -56,15 +50,20 @@ public class GestionJuegos {
 			case 6:
 				services.listarEditores();
 				break;
+			case 7:
+				services.listarJuegosSigloXX();
+				break;
 			case 8:
 				services.listarGeneros();
 				break;
 			case 9:
 				services.listarJuegosPorPlataforma();
 				break;
-
 			case 10:
 				services.listarJuegosPorAnyoPar();
+				break;
+			case 11:
+				services.editarJuego();
 				break;
 			case 12:
 				services.eliminarJuego();
@@ -83,5 +82,4 @@ public class GestionJuegos {
 		String sino = EntradaTeclado.leeStringConMensaje("¿Estas seguro que quieres salir? S/N");
 		return (sino.toUpperCase().charAt(0) != 'S');
 	}
-
 }

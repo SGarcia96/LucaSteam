@@ -16,7 +16,11 @@ public interface IDAOJuego {
 	
 	public void eliminarJuego();
 	public void eliminarJuego(Juego juego);
+	
+	public void editarJuego();
 
+	public void cargarJuegos();
+	
 	public void listarJuegosPorGenero();
 	public List<Juego> listarJuegosPorGenero(Genero genero);
 	
@@ -26,14 +30,10 @@ public interface IDAOJuego {
 	public void listarJuegosNintendo();
 	public List<Juego> listarJuegosNintendo(String fabricante);
 	
-	public void cargarJuegos();
 
 	public List<Juego> listarJuegosSigloXX();
 	public List<Juego> listarJuegosPorAnyoPar();
-
 	
 	public Set<String> listarEditores();
 	public Set<Genero> listarGeneros();
-
-
 }

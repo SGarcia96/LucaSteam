@@ -1,5 +1,7 @@
 package model;
+
 import exceptions.ExcepcionGenero;
+
 public enum Genero {
 
 	ACTION(1),

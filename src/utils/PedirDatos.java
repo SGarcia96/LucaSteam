@@ -6,7 +6,7 @@ import exceptions.ExcepcionFecha;
 
 import exceptions.ExcepcionGenero;
 
-import exceptions.ExcepcionPlat;
+import exceptions.ExcepcionPlataforma;
 
 import model.Genero;
 import model.Juego;
@@ -59,14 +59,14 @@ public class PedirDatos {
 				Plataforma.InformePlataforma();
 				plat = Plataforma.dimePlataforma(EntradaTeclado.leeStringConMensaje("introduce plataforma"));
 				if (plat == null) {
-					throw new ExcepcionPlat();
+					throw new ExcepcionPlataforma();
 				}
 				juego.setPlataforma(plat);
 				platIncorrecta = false;
 			} catch (InputMismatchException e) {
 				System.out.println("Inserte uno de los códigos");
 			} catch (Throwable t) {
-				System.out.println(((ExcepcionPlat) t).getMensaje());
+				System.out.println(((ExcepcionPlataforma) t).getMensaje());
 			}
 		} while (platIncorrecta);
 	}

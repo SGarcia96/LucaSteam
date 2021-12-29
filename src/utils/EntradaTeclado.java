@@ -15,7 +15,6 @@ public class EntradaTeclado {
 	}
 
 	public static int leeInt() {
-		// throw InputMismatchException
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		return scanner.nextInt();

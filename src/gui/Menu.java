@@ -16,6 +16,7 @@ public class Menu {
 		System.out.println("8) Listar generos");
 		System.out.println("9) Listar por plataforma");
 		System.out.println("10) Listar juegos anyo par");
+		System.out.println("11) Editar juego existente");
 		System.out.println("12) Eliminar un juego existente");
 		System.out.println("0) Salir");
 	}
