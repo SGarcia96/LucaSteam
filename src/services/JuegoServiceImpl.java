@@ -73,6 +73,13 @@ public class JuegoServiceImpl implements IJuegoService {
 		logger.debug("Llamando al metodo cargar juego de la capa de datos");
 		daoJuego.cargarJuegos();
 	}
+	
+	@Override
+	public void listarJuegosSigloXX() {
+		logger.info("Inicio del metodo listar juegos siglo XX en la capa de servicios");
+		logger.debug("Llamando al metodo listar juegos siglo XX de la capa de datos");
+		daoJuego.listarJuegosSigloXX();
+	}
 
 	@Override
 	public void listarEditores() {

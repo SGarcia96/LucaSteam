@@ -20,7 +20,11 @@ public interface IDAOJuego {
 	public List<Juego> listarJuegosNintendo(String fabricante);
 	
 	public void cargarJuegos();
+
+	public void listarJuegosSigloXX();
+
 	
 	public Set<String> listarEditores();
+
 
 }
