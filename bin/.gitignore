@@ -1,2 +1,9 @@
-/gui/
 /control/
+/dao/
+/exceptions/
+/gui/
+/log4j2.xml
+/model/
+/services/
+/test/
+/utils/
